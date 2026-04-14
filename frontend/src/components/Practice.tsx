@@ -504,7 +504,7 @@ export default function Practice() {
         <div className="practice-stats">
           <span>今日: {todayStats.count}题 {todayStats.count > 0 ? `${Math.round(todayStats.correct / todayStats.count * 100)}%` : '0%'}</span>
           <span className="divider">|</span>
-          <span>剩余 {questionGroups.length - currentIndex} 组</span>
+          <span>第 {currentIndex + 1} / {questionGroups.length} 组</span>
           <span className="divider">|</span>
           <span>错题数: {wrongQuestions.length}</span>
           <span className="divider">|</span>
@@ -631,30 +631,37 @@ export default function Practice() {
             </button>
           ) : (
             <div className="navigation-buttons">
-              {currentIndex < questionGroups.length - 1 ? (
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    const nextIndex = currentIndex + 1
-                    setCurrentIndex(nextIndex)
-                    setSelectedAnswer(undefined)
-                    setShowResult(false)
-                    setTimeout(() => currentGroup.forEach(q => markDone(q.id)), 0)
-                    // 保存进度
-                    if (currentExamSet) {
-                      saveExamProgress(currentExamSet, nextIndex)
-                    } else {
-                      savePracticeProgress(nextIndex)
-                    }
-                  }}
-                >
-                  下一题
-                </button>
-              ) : (
-                <button className="btn btn-secondary" onClick={handleReset}>
-                  重新开始
-                </button>
-              )}
+              {(() => {
+                console.log('Passage Debug info:', {
+                  currentIndex,
+                  questionGroupsLength: questionGroups.length,
+                  hasNext: currentIndex < questionGroups.length - 1
+                })
+                return currentIndex < questionGroups.length - 1 ? (
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      const nextIndex = currentIndex + 1
+                      setCurrentIndex(nextIndex)
+                      setSelectedAnswer(undefined)
+                      setShowResult(false)
+                      setTimeout(() => currentGroup.forEach(q => markDone(q.id)), 0)
+                      // 保存进度
+                      if (currentExamSet) {
+                        saveExamProgress(currentExamSet, nextIndex)
+                      } else {
+                        savePracticeProgress(nextIndex)
+                      }
+                    }}
+                  >
+                    下一题
+                  </button>
+                ) : (
+                  <button className="btn btn-secondary" onClick={handleReset}>
+                    重新开始
+                  </button>
+                )
+              })()}
               {currentIndex < questionGroups.length - 1 && (
                 <button className="btn btn-secondary" onClick={handleReset}>
                   重新开始
@@ -685,18 +692,25 @@ export default function Practice() {
             </button>
           ) : (
             <div className="navigation-buttons">
-              {currentIndex < questionGroups.length - 1 ? (
-                <button
-                  className="btn btn-primary"
-                  onClick={handleNext}
-                >
-                  下一题
-                </button>
-              ) : (
-                <button className="btn btn-secondary" onClick={handleReset}>
-                  重新开始
-                </button>
-              )}
+              {(() => {
+                console.log('Debug info:', {
+                  currentIndex,
+                  questionGroupsLength: questionGroups.length,
+                  hasNext: currentIndex < questionGroups.length - 1
+                })
+                return currentIndex < questionGroups.length - 1 ? (
+                  <button
+                    className="btn btn-primary"
+                    onClick={handleNext}
+                  >
+                    下一题
+                  </button>
+                ) : (
+                  <button className="btn btn-secondary" onClick={handleReset}>
+                    重新开始
+                  </button>
+                )
+              })()}
               {currentIndex < questionGroups.length - 1 && (
                 <button className="btn btn-secondary" onClick={handleReset}>
                   重新开始
