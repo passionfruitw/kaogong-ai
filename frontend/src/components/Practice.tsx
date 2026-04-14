@@ -646,7 +646,6 @@ export default function Practice() {
                     savePracticeProgress(nextIndex)
                   }
                 }}
-                style={{ display: currentIndex >= questionGroups.length - 1 ? 'none' : 'inline-block' }}
               >
                 下一题
               </button>
@@ -684,14 +683,12 @@ export default function Practice() {
               <button
                 className="btn btn-primary"
                 onClick={handleNext}
-                style={{ display: currentIndex >= questionGroups.length - 1 ? 'none' : 'inline-block' }}
               >
                 下一题
               </button>
               <button
                 className="btn btn-secondary"
                 onClick={handleReset}
-                style={{ display: currentIndex >= questionGroups.length - 1 ? 'inline-block' : 'inline-block' }}
               >
                 重新开始
               </button>
