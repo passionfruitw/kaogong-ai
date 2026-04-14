@@ -1,4 +1,4 @@
-import type { Question } from '../types'
+import type { Question } from '../../types'
 
 const question: Question = {
   id: 20221001002,
