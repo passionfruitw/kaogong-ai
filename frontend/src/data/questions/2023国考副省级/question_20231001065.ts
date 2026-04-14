@@ -9,7 +9,7 @@ const question: Question = {
   options: [
     'A、不到 25%',
     'B、25%~35%之间',
-    'C、35\% ~ 45\% 之间',
+    'C、35% ~ 45% 之间',
     'D、超过 45%'
   ],
   answer: 'B'

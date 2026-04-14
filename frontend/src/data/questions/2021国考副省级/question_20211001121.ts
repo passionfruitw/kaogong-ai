@@ -6,7 +6,7 @@ const question: Question = {
   knowledgePoint: '资料分析',
   examSet: '2021国考副省级',
   passageId: 20211001121,
-  question: '121、2014—2019年间，全国地铁运营线路长度同比增长 20\% 以上的年份有几个？',
+  question: '121、2014—2019年间，全国地铁运营线路长度同比增长 20% 以上的年份有几个？',
   options: [
     'A、1',
     'B、2',

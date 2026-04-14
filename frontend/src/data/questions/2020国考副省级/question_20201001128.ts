@@ -10,7 +10,7 @@ const question: Question = {
   options: [
     'A、5%',
     'B、10%',
-    'C、15\%',
+    'C、15%',
     'D、20%'
   ],
   answer: 'C'

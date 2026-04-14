@@ -5,7 +5,7 @@ const question: Question = {
   module: '言语理解',
   knowledgePoint: '言语理解',
   examSet: '2022国考地市',
-  question: '47、\textcircled1 发展是硬道理，而水则是硬约束  \textcircled2 自古以来，我国基本水情一直是夏汛冬枯、北缺南丰，水资源时空分布极不均衡   \textcircled3 以黄河为例，黄河水资源总量不到长江的 7 \% ，黄河流域人均水资源占有量仅为全国平均水平的 2 7 \%    \textcircled4 水资源格局，影响和决定着经济社会发展格局   \textcircled5 党和国家实施南水北调工程建设，就是要对水资源进行科学调剂，促进南北方均衡发展、可持续发展   \textcircled6 在京津所在的海河流域，由于经济社会快速发展和人口不断增加，华北地区地下水长期超采，形成世界上最大、最深的“漏斗区”  将以上6个句子重新排列，语序正确的一项是：',
+  question: '47、\textcircled1 发展是硬道理，而水则是硬约束  \textcircled2 自古以来，我国基本水情一直是夏汛冬枯、北缺南丰，水资源时空分布极不均衡   \textcircled3 以黄河为例，黄河水资源总量不到长江的 7 % ，黄河流域人均水资源占有量仅为全国平均水平的 2 7 %    \textcircled4 水资源格局，影响和决定着经济社会发展格局   \textcircled5 党和国家实施南水北调工程建设，就是要对水资源进行科学调剂，促进南北方均衡发展、可持续发展   \textcircled6 在京津所在的海河流域，由于经济社会快速发展和人口不断增加，华北地区地下水长期超采，形成世界上最大、最深的“漏斗区”  将以上6个句子重新排列，语序正确的一项是：',
   options: [
     'A、\textcircled  1  \textcircled  5  \textcircled  6  \textcircled  3  \textcircled  2  \textcircled  4',
     'B、\textcircled  2  \textcircled  3  \textcircled  4  \textcircled  5  \textcircled  6  \textcircled  1',

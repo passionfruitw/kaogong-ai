@@ -6,7 +6,7 @@ const question: Question = {
   knowledgePoint: '资料分析',
   examSet: '2021国考地市',
   passageId: 20211002111,
-  question: '112、2014—2019年间，我国LED产业封装、外延芯片和应用市场产值同比增速均超过 10\% 的年份有几个？',
+  question: '112、2014—2019年间，我国LED产业封装、外延芯片和应用市场产值同比增速均超过 10% 的年份有几个？',
   options: [
     'A、1',
     'B、2',
