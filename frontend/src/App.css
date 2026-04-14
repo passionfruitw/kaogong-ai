@@ -275,3 +275,16 @@
 .status-wrong {
   color: #e74c3c;
 }
+
+/* 导航按钮容器 */
+.navigation-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.navigation-buttons .btn {
+  flex: 1;
+  max-width: 200px;
+}

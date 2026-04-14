@@ -626,11 +626,11 @@ export default function Practice() {
                 }
               }}
               disabled={currentGroup.some(q => !passageAnswers[q.id])}
+              style={{ display: passageSubmitted ? 'none' : 'block' }}
             >
               提交答案
             </button>
-          ) : (
-            <div className="navigation-buttons">
+            <div className="navigation-buttons" style={{ display: passageSubmitted ? 'flex' : 'none' }}>
               <button
                 className="btn btn-primary"
                 onClick={() => {
@@ -656,7 +656,6 @@ export default function Practice() {
                 重新开始
               </button>
             </div>
-          )}
           <ScrollToTopButton />
         </>
       ) : (
@@ -670,30 +669,28 @@ export default function Practice() {
             onAnalyzeClick={handleGoToSocratic}
             onPracticeVariant={handlePracticeVariant}
           />
-          {!showResult ? (
+          <button
+            className="btn btn-primary submit-btn"
+            onClick={handleSubmit}
+            disabled={!selectedAnswer}
+            style={{ display: showResult ? 'none' : 'block' }}
+          >
+            提交答案
+          </button>
+          <div className="navigation-buttons" style={{ display: showResult ? 'flex' : 'none' }}>
             <button
-              className="btn btn-primary submit-btn"
-              onClick={handleSubmit}
-              disabled={!selectedAnswer}
+              className="btn btn-primary"
+              onClick={handleNext}
             >
-              提交答案
+              下一题
             </button>
-          ) : (
-            <div className="navigation-buttons">
-              <button
-                className="btn btn-primary"
-                onClick={handleNext}
-              >
-                下一题
-              </button>
-              <button
-                className="btn btn-secondary"
-                onClick={handleReset}
-              >
-                重新开始
-              </button>
-            </div>
-          )}
+            <button
+              className="btn btn-secondary"
+              onClick={handleReset}
+            >
+              重新开始
+            </button>
+          </div>
         </>
       )}
     </div>

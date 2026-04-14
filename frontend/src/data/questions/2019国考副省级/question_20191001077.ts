@@ -13,7 +13,7 @@ const question: Question = {
     'C、见图片',
     'D、见图片'
   ],
-  answer: ''
+  answer: 'D'
 }
 
 export default question
