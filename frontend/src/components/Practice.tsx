@@ -631,28 +631,35 @@ export default function Practice() {
             </button>
           ) : (
             <div className="navigation-buttons">
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  const nextIndex = currentIndex + 1
-                  setCurrentIndex(nextIndex)
-                  setSelectedAnswer(undefined)
-                  setShowResult(false)
-                  setTimeout(() => currentGroup.forEach(q => markDone(q.id)), 0)
-                  // 保存进度
-                  if (currentExamSet) {
-                    saveExamProgress(currentExamSet, nextIndex)
-                  } else {
-                    savePracticeProgress(nextIndex)
-                  }
-                }}
-                disabled={currentIndex >= questionGroups.length - 1}
-              >
-                下一题
-              </button>
-              <button className="btn btn-secondary" onClick={handleReset}>
-                重新开始
-              </button>
+              {currentIndex < questionGroups.length - 1 ? (
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    const nextIndex = currentIndex + 1
+                    setCurrentIndex(nextIndex)
+                    setSelectedAnswer(undefined)
+                    setShowResult(false)
+                    setTimeout(() => currentGroup.forEach(q => markDone(q.id)), 0)
+                    // 保存进度
+                    if (currentExamSet) {
+                      saveExamProgress(currentExamSet, nextIndex)
+                    } else {
+                      savePracticeProgress(nextIndex)
+                    }
+                  }}
+                >
+                  下一题
+                </button>
+              ) : (
+                <button className="btn btn-secondary" onClick={handleReset}>
+                  重新开始
+                </button>
+              )}
+              {currentIndex < questionGroups.length - 1 && (
+                <button className="btn btn-secondary" onClick={handleReset}>
+                  重新开始
+                </button>
+              )}
             </div>
           )}
           <ScrollToTopButton />
@@ -678,16 +685,23 @@ export default function Practice() {
             </button>
           ) : (
             <div className="navigation-buttons">
-              <button
-                className="btn btn-primary"
-                onClick={handleNext}
-                disabled={currentIndex >= questionGroups.length - 1}
-              >
-                下一题
-              </button>
-              <button className="btn btn-secondary" onClick={handleReset}>
-                重新开始
-              </button>
+              {currentIndex < questionGroups.length - 1 ? (
+                <button
+                  className="btn btn-primary"
+                  onClick={handleNext}
+                >
+                  下一题
+                </button>
+              ) : (
+                <button className="btn btn-secondary" onClick={handleReset}>
+                  重新开始
+                </button>
+              )}
+              {currentIndex < questionGroups.length - 1 && (
+                <button className="btn btn-secondary" onClick={handleReset}>
+                  重新开始
+                </button>
+              )}
             </div>
           )}
         </>
