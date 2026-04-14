@@ -258,16 +258,6 @@ export default function Practice() {
     saveAnswer(currentQuestion.id, selectedAnswer, isCorrect)
     updateTodayStats(isCorrect)
     setShowResult(true)
-
-    // 提交答案后保存进度到下一题
-    const nextIndex = currentIndex + 1
-    if (currentExamSet) {
-      // 真题套卷模式：保存套卷进度
-      saveExamProgress(currentExamSet, nextIndex)
-    } else {
-      // 刷题模式：保存刷题进度
-      savePracticeProgress(nextIndex)
-    }
   }
 
   const handleNext = () => {
@@ -599,63 +589,55 @@ export default function Practice() {
               hidePassage={idx > 0}
             />
           ))}
-          {!passageSubmitted ? (
-            <button
-              className="btn btn-primary submit-btn"
-              onClick={() => {
-                currentGroup.forEach(q => {
-                  const ans = passageAnswers[q.id]
-                  const correct = ans === q.answer
-                  saveAnswer(q.id, ans || '', correct)
-                  updateTodayStats(correct)
-                  if (!correct && ans) {
-                    const exists = wrongQuestions.some(wq => wq.question.id === q.id)
-                    if (!exists) {
-                      setWrongQuestions([...wrongQuestions, { question: q, userAnswer: ans, timestamp: Date.now() }])
-                    }
+          <button
+            className="btn btn-primary submit-btn"
+            onClick={() => {
+              currentGroup.forEach(q => {
+                const ans = passageAnswers[q.id]
+                const correct = ans === q.answer
+                saveAnswer(q.id, ans || '', correct)
+                updateTodayStats(correct)
+                if (!correct && ans) {
+                  const exists = wrongQuestions.some(wq => wq.question.id === q.id)
+                  if (!exists) {
+                    setWrongQuestions([...wrongQuestions, { question: q, userAnswer: ans, timestamp: Date.now() }])
                   }
-                })
-                setPassageSubmitted(true)
-                setTimerActive(false)
-                // 提交后保存进度到下一题
+                }
+              })
+              setPassageSubmitted(true)
+              setTimerActive(false)
+            }}
+            disabled={currentGroup.some(q => !passageAnswers[q.id])}
+            style={{ display: passageSubmitted ? 'none' : 'block' }}
+          >
+            提交答案
+          </button>
+          <div className="navigation-buttons" style={{ display: passageSubmitted ? 'flex' : 'none' }}>
+            <button
+              className="btn btn-primary"
+              onClick={() => {
                 const nextIndex = currentIndex + 1
+                setCurrentIndex(nextIndex)
+                setSelectedAnswer(undefined)
+                setShowResult(false)
+                setTimeout(() => currentGroup.forEach(q => markDone(q.id)), 0)
+                // 保存进度
                 if (currentExamSet) {
                   saveExamProgress(currentExamSet, nextIndex)
                 } else {
                   savePracticeProgress(nextIndex)
                 }
               }}
-              disabled={currentGroup.some(q => !passageAnswers[q.id])}
-              style={{ display: passageSubmitted ? 'none' : 'block' }}
             >
-              提交答案
+              下一题
             </button>
-            <div className="navigation-buttons" style={{ display: passageSubmitted ? 'flex' : 'none' }}>
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  const nextIndex = currentIndex + 1
-                  setCurrentIndex(nextIndex)
-                  setSelectedAnswer(undefined)
-                  setShowResult(false)
-                  setTimeout(() => currentGroup.forEach(q => markDone(q.id)), 0)
-                  // 保存进度
-                  if (currentExamSet) {
-                    saveExamProgress(currentExamSet, nextIndex)
-                  } else {
-                    savePracticeProgress(nextIndex)
-                  }
-                }}
-              >
-                下一题
-              </button>
-              <button
-                className="btn btn-secondary"
-                onClick={handleReset}
-              >
-                重新开始
-              </button>
-            </div>
+            <button
+              className="btn btn-secondary"
+              onClick={handleReset}
+            >
+              重新开始
+            </button>
+          </div>
           <ScrollToTopButton />
         </>
       ) : (
