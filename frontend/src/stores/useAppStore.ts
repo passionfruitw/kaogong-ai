@@ -287,7 +287,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   clearTraining: () => set({ trainingVariants: [], currentTrainingIndex: 0, originalQuestion: null }),
 
   // Composite actions
-  startPractice: (questionId, examSet) => {
+  startPractice: (questionId, _examSet) => {
     const newSet = new Set(get().doneQuestionIds)
     newSet.delete(questionId)
     localStorage.setItem('doneQuestionIds', JSON.stringify([...newSet]))
