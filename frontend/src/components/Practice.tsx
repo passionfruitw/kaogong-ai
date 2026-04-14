@@ -82,25 +82,36 @@ export default function Practice() {
     return undefined
   }, [initialQuestionId])
 
+  // 使用 ref 存储初始答题历史，避免刷题过程中题目列表重新排序
+  const initialAnswerHistoryRef = useRef(answerHistory)
+
+  // 只在切换模式或初始化时更新初始答题历史
+  useEffect(() => {
+    initialAnswerHistoryRef.current = answerHistory
+  }, [practiceMode])
+
   const filteredQuestions = useMemo(() => {
     let filtered = currentExamSet
       ? questions.filter(q => q.examSet === currentExamSet)
       : questions
 
+    // 使用初始答题历史进行筛选和排序，避免刷题过程中列表变化
+    const historySnapshot = initialAnswerHistoryRef.current
+
     // 根据刷题模式筛选
     switch (practiceMode) {
       case 'undone':
-        return filtered.filter(q => !answerHistory.find(h => h.questionId === q.id))
+        return filtered.filter(q => !historySnapshot.find(h => h.questionId === q.id))
       case 'wrong':
         // 只刷错题：显示所有做错过的题目
         return filtered.filter(q => {
-          const history = answerHistory.find(h => h.questionId === q.id)
+          const history = historySnapshot.find(h => h.questionId === q.id)
           return history && !history.isCorrect
         })
       case 'smart':
         return [...filtered].sort((a, b) => {
-          const aHistory = answerHistory.find(h => h.questionId === a.id)
-          const bHistory = answerHistory.find(h => h.questionId === b.id)
+          const aHistory = historySnapshot.find(h => h.questionId === a.id)
+          const bHistory = historySnapshot.find(h => h.questionId === b.id)
 
           // 艾宾浩斯遗忘曲线复习间隔（天）：1, 2, 4, 7, 15
           const shouldReview = (history: typeof aHistory) => {
@@ -131,7 +142,7 @@ export default function Practice() {
 
           // 4. 知识点正确率低的优先
           const getKnowledgePointAccuracy = (q: Question) => {
-            const kpAnswers = answerHistory.filter(h => {
+            const kpAnswers = historySnapshot.filter(h => {
               const question = questions.find(qq => qq.id === h.questionId)
               return question?.knowledgePoint === q.knowledgePoint
             })
@@ -149,7 +160,7 @@ export default function Practice() {
       default:
         return filtered
     }
-  }, [currentExamSet, practiceMode, answerHistory])
+  }, [currentExamSet, practiceMode])
 
   // 应用刷题数量限制（真题套卷模式不限制）
   const limitedQuestions = useMemo(() => {
