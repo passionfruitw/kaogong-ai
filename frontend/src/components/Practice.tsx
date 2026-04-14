@@ -625,7 +625,7 @@ export default function Practice() {
                 if (currentExamSet) {
                   saveExamProgress(currentExamSet, nextIndex)
                 } else {
-                  savePracticeProgress(nextIndex)
+                  savePracticeModeProgress(practiceMode, nextIndex)
                 }
               }}
             >
