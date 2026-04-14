@@ -1,0 +1,19 @@
+import type { Question } from '../types'
+
+const question: Question = {
+  id: 20191002129,
+  module: '资料分析',
+  knowledgePoint: '资料分析',
+  examSet: '2019国考地市',
+  passageId: 20191002126,
+  question: '129、2016年，A省高铁客运量约是普铁（除高铁外的铁路）客运量的多少倍？',
+  options: [
+    'A、1.4',
+    'B、1.7',
+    'C、0.8',
+    'D、1.1'
+  ],
+  answer: 'A'
+}
+
+export default question

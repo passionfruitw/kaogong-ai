@@ -1,0 +1,18 @@
+import type { Question } from '../types'
+
+const question: Question = {
+  id: 20231002064,
+  module: '数量关系',
+  knowledgePoint: '数量关系',
+  examSet: '2023国考地市',
+  question: '64、甲和乙两个工程队共同承担某项工程的施工任务。两队合作时各自的效率均比单独施工时高20%。已知两队合作施工需要25天完工；如甲先施工15天后乙加入，两队合作15天后剩余工作乙单独施工还需要10天完成。问甲队的效率是乙队的多少倍？',
+  options: [
+    'A、3/2',
+    'B、4/3',
+    'C、1/2',
+    'D、2/3'
+  ],
+  answer: 'D'
+}
+
+export default question
