@@ -43,7 +43,6 @@ export default function Practice() {
   const saveAnswer = useAppStore(s => s.saveAnswer)
   const clearTraining = useAppStore(s => s.clearTraining)
   const setCurrentView = useAppStore(s => s.setCurrentView)
-  const savePracticeProgress = useAppStore(s => s.savePracticeProgress)
   const saveExamProgress = useAppStore(s => s.saveExamProgress)
   const answerHistory = useAppStore(s => s.answerHistory)
   const practiceMode = useAppStore(s => s.practiceMode)
