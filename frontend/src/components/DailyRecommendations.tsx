@@ -1,6 +1,5 @@
 import { useMemo } from 'react'
 import { useAppStore } from '../stores/useAppStore'
-import { questions } from '../data/index'
 
 const REVIEW_INTERVALS = [1, 2, 4, 7, 15] // 艾宾浩斯遗忘曲线（天）
 
