@@ -255,7 +255,12 @@ export default function QuestionBank() {
                       提交答案
                     </button>
                   ) : (
-                    <button className="btn btn-secondary" onClick={handleReset}>重新开始</button>
+                    <div className="navigation-buttons">
+                      {selectedGroupIndex !== null && selectedGroupIndex < questionGroups.length - 1 && (
+                        <button className="btn btn-primary" onClick={() => handleGroupClick(selectedGroupIndex + 1)}>下一题</button>
+                      )}
+                      <button className="btn btn-secondary" onClick={handleReset}>重新开始</button>
+                    </div>
                   )}
                   <ScrollToTopButton />
                 </>
@@ -275,7 +280,12 @@ export default function QuestionBank() {
                       提交答案
                     </button>
                   ) : (
-                  <button className="btn btn-secondary" onClick={handleReset}>重新开始</button>
+                  <div className="navigation-buttons">
+                    {selectedGroupIndex !== null && selectedGroupIndex < questionGroups.length - 1 && (
+                      <button className="btn btn-primary" onClick={() => handleGroupClick(selectedGroupIndex + 1)}>下一题</button>
+                    )}
+                    <button className="btn btn-secondary" onClick={handleReset}>重新开始</button>
+                  </div>
                   )}
                 </>
               )}
