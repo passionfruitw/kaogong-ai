@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001103,
   module: '判断推理',
-  knowledgePoint: '分析推理',
+  knowledgePoint: '类比推理',
   examSet: '2019国考副省级',
   question: '103、微量元素：稀有金属：铜',
   options: [

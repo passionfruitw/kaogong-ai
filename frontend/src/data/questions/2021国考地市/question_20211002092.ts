@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002092,
   module: '判断推理',
-  knowledgePoint: '分析推理',
+  knowledgePoint: '类比推理',
   examSet: '2021国考地市',
   question: '92、船舶抛锚：请求救援',
   options: [

@@ -36,6 +36,7 @@ export default function QuestionBank() {
   const answerHistory = useAppStore(s => s.answerHistory)
 
   const [selectedModule, setSelectedModule] = useState('全部')
+  const [selectedKnowledgePoint, setSelectedKnowledgePoint] = useState('全部')
   const [searchText, setSearchText] = useState('')
   const [showBookmarkedOnly, setShowBookmarkedOnly] = useState(false)
   const [selectedGroupIndex, setSelectedGroupIndex] = useState<number | null>(null)
@@ -47,10 +48,20 @@ export default function QuestionBank() {
 
   const modules = getAllModules()
   const allQuestions = [...questions, ...customQuestions]
+
+  const knowledgePoints = useMemo(() => {
+    const base = selectedModule === '全部' ? allQuestions : allQuestions.filter(q => q.module === selectedModule)
+    const kps = Array.from(new Set(base.map(q => q.knowledgePoint).filter(Boolean))).sort()
+    return ['全部', ...kps]
+  }, [selectedModule, customQuestions])
+
   const filteredQuestions = useMemo(() => {
     let filtered = selectedModule === '全部'
       ? allQuestions
       : allQuestions.filter(q => q.module === selectedModule)
+    if (selectedKnowledgePoint !== '全部') {
+      filtered = filtered.filter(q => q.knowledgePoint === selectedKnowledgePoint)
+    }
     if (showBookmarkedOnly) {
       filtered = filtered.filter(q => bookmarkedIds.has(q.id))
     }
@@ -63,7 +74,7 @@ export default function QuestionBank() {
       )
     }
     return filtered
-  }, [selectedModule, customQuestions, searchText, showBookmarkedOnly, bookmarkedIds])
+  }, [selectedModule, selectedKnowledgePoint, customQuestions, searchText, showBookmarkedOnly, bookmarkedIds])
 
   const questionGroups = useMemo(() => {
     const groups: Question[][] = []
@@ -131,7 +142,7 @@ export default function QuestionBank() {
     <div className="question-bank">
       <div className="bank-header">
         <h2>题库</h2>
-        <p className="bank-stats">共 {questionGroups.length} 组题目</p>
+        <p className="bank-stats">共 {questionGroups.length} 组题目{selectedKnowledgePoint !== '全部' ? ` · ${selectedKnowledgePoint}` : ''}</p>
       </div>
 
       <div className="module-filter">
@@ -156,11 +167,26 @@ export default function QuestionBank() {
           <button
             key={module}
             className={`filter-btn ${selectedModule === module ? 'active' : ''}`}
-            onClick={() => { setSelectedModule(module); setSelectedGroupIndex(null) }}
+            onClick={() => { setSelectedModule(module); setSelectedKnowledgePoint('全部'); setSelectedGroupIndex(null) }}
           >
             {module}
           </button>
         ))}
+
+        {selectedModule !== '全部' && knowledgePoints.length > 2 && (
+          <div style={{ marginTop: 8, display: 'flex', gap: 6, flexWrap: 'wrap', paddingTop: 8, borderTop: '1px solid #eee' }}>
+            {knowledgePoints.map(kp => (
+              <button
+                key={kp}
+                className={`filter-btn ${selectedKnowledgePoint === kp ? 'active' : ''}`}
+                style={{ fontSize: 12, padding: '3px 10px' }}
+                onClick={() => { setSelectedKnowledgePoint(kp); setSelectedGroupIndex(null) }}
+              >
+                {kp}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
 

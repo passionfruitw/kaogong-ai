@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003096,
   module: '判断推理',
-  knowledgePoint: '分析推理',
+  knowledgePoint: '类比推理',
   examSet: '2023国考行政执法',
   question: '96、春季过敏：花粉：喷嚏',
   options: [

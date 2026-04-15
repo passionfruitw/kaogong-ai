@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001102,
   module: '判断推理',
-  knowledgePoint: '分析推理',
+  knowledgePoint: '类比推理',
   examSet: '2021国考副省级',
   question: '102、中央预算：年度预算：地方预算',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002098,
   module: '判断推理',
-  knowledgePoint: '分析推理',
+  knowledgePoint: '类比推理',
   examSet: '2024国考地市',
   question: '98、轮作休耕：耕地保护：严禁占用',
   options: [

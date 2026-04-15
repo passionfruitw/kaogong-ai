@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003096,
   module: '判断推理',
-  knowledgePoint: '分析推理',
+  knowledgePoint: '类比推理',
   examSet: '2024国考行政执法',
   question: '96、蚜虫：七星瓢虫：小麦',
   options: [
