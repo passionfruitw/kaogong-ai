@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003105,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2024国考行政执法',
   question: '105、研究发现，一种被称为 EPASI 的特殊基因能调节机体生理状态，使人类适应缺氧环境。考古研究表明这种特殊基因最早可追溯至 16 万年前已居住于青藏高原的古人类。由于 16 万年前全球同时生活着尼安德特人、丹尼索瓦人及古老的直立人，其中只有丹尼索瓦人拥有这一基因，考古学家推测丹尼索瓦人很可能在 16 万年前居住于青藏高原。  以下除哪项外，均能支持考古学家的推测？',
   options: [

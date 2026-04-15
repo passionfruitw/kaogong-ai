@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001093,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2024国考副省级',
   question: '93、民俗是指一个民族或一个社会群体在长期的生产实践和社会生活中逐渐形成并世代相传、较为稳定的文化事项，可以简单概括为民间流行的风尚、习俗，具有传承性、广泛性、稳定性。  根据上述定义，下列活动属于民俗的是：  【认准淘宝店铺：通关达人资料库】考研，公考，一站式备考，持续更新',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003012,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2024国考行政执法',
   question: '12、下列哪种情形，我国刑法不具有管辖权？',
   options: [

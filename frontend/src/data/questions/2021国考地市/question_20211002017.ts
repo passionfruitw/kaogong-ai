@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002017,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2021国考地市',
   question: '17、下面是一款路由器的参数规格说明，对此描述错误的是：',
   options: [

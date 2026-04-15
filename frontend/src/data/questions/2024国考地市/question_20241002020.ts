@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002020,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2024国考地市',
   question: '20、下列与家庭用电有关的说法错误的是：',
   options: [

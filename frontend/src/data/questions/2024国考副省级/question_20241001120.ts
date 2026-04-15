@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001120,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2024国考副省级',
   passageId: 20241001116,
   question: '120、以下折线图反映了2019~2022年我国马铃薯哪一产销数据的同比增量变化趋势？',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002008,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2019国考地市',
   question: '8、下列犯罪行为应以盗窃罪论处的是：',
   options: [

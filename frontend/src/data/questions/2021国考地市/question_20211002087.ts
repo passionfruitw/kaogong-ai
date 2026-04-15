@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002087,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2021国考地市',
   question: '87、对立互补命题指的是先后叙述的两个结构基本相同的句式中含有两对或者两对以上相互对立的概念，但是其阐发的意思是一致的或者是相互补充的。  根据上述定义，下列不属于对立互补命题的是：',
   options: [

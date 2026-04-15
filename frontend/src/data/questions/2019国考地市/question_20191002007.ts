@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002007,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2019国考地市',
   question: '7、关于人民陪审员，下列说法符合法律规定的是：',
   options: [

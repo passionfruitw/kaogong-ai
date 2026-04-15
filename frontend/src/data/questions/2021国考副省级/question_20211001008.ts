@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001008,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2021国考副省级',
   question: '8、根据2020年7月1日起实施的《中华人民共和国公职人员政务处分法》，下列说法错误的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002115,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '平均数倍数',
   examSet: '2019国考地市',
   passageId: 20191002111,
   question: '115、能够从上述资料中推出的是：',

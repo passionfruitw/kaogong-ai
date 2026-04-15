@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002082,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2024国考地市',
   passageId: 20241002081,
   question: '82、复杂型消费行为是指消费者对价格昂贵，品牌差异大，功能复杂的商品，由于缺乏必要的商品知识，需要慎重选择，仔细对比，只求降低风险的购买行为；多变型消费行为是指如果消费者购买的商品价格低，可供选择的品牌很多时，他们并不花太多的时间选择品牌，而是经常变换品牌。  根据上述定义，下列说法正确的是：',

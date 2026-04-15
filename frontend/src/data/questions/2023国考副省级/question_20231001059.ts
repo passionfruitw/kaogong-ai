@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001059,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2023国考副省级',
   question: '59、对最后一段中“成为日益暖化的地球上又一根新的稻草”理解最准确的是：',
   options: [

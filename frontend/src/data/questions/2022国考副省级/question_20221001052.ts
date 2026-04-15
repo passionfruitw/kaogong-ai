@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001052,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2022国考副省级',
   passageId: 20221001051,
   question: '52、（单选题）作者列举北京猿人的例子，意在说明：',

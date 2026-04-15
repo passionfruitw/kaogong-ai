@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002021,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2023国考地市',
   question: '21、构建新发展格局的关键在于经济循环的___，就像人们讲的要调理好统摄全身阴阳气血的任督二脉。经济活动需要各种生产要素的组合在生产、分配、流通、消费各环节有机衔接，从而实现循环流转。  填入画横线部分最恰当的一项是：',
   options: [

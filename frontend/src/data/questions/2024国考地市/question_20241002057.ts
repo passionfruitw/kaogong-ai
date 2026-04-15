@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002057,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2024国考地市',
   question: '57、良法是善治的前提。“法非从天下，非从地出，发于人间，合乎人心而已。”___，发挥好人大及其常委会在立法工作中的主导作用，坚持尊重和体现客观规律，坚持为了人民、依靠人民，坚持严格依照法定权限和法定程序，深入推进科学立法、民主立法、依法立法。填入画横线部分最恰当的一项是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002106,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2021国考地市',
   passageId: 20211002106,
   question: '106、关于分管情况，下列哪项是可能的？',

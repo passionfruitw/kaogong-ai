@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003102,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '削弱加强',
   examSet: '2023国考行政执法',
   question: '102、人们感受气味通过嗅觉受体实现。研究发现：随着人类的演化，编码人类嗅觉受体的基因不断突变，许多在过去能强烈感觉气味的嗅觉受体已经突变为对气味不敏感的受体，与此同时，人类嗅觉受体的总体数目也随时间推移逐渐变少。由此可以认为，人类的嗅觉经历着不断削弱、逐渐退化的过程。  以下哪项如果为真，最能支持上述结论？',
   options: [

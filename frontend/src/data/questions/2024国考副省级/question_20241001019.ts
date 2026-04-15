@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001019,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2024国考副省级',
   question: '19、下列与花卉有关的说法正确的是：',
   options: [

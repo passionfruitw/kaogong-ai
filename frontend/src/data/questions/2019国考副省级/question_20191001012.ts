@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001012,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2019国考副省级',
   question: '12、下列宫殿的名称与典籍不直接相关的是：',
   options: [

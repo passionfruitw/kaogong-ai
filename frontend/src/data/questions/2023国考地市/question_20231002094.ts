@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002094,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2023国考地市',
   question: '94、铜镜：化妆镜',
   options: [

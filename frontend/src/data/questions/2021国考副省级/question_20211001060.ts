@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001060,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2021国考副省级',
   passageId: 20211001056,
   question: '60、最适合做这段文字标题的是：',

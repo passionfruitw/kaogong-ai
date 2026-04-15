@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002088,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2019国考地市',
   question: '88、员工帮助计划是由企业为员工设置的一套长期的、系统的福利项目，通过专业人员对员工及其直系亲属提供专业指导和咨询，旨在帮助解决员工及其家庭成员的各种心理和行为问题，提高员工在企业中的工作绩效。根据上述定义，下列属于员工帮助计划的是：',
   options: [

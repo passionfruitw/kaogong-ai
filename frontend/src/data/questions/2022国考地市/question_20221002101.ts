@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002101,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2022国考地市',
   question: '101、最近，主打白噪音的助眠产品引起很多人的兴趣。有人认为，白噪音可以掩盖环境中干扰性的刺激，有助于促进睡眠、改善睡眠质量。但研究者对此持怀疑态度，认为白噪音可改善睡眠的研究证据不足，持续白噪音甚至会对睡眠造成影响。  以下哪项如果为真，不能支持研究者的观点?',
   options: [

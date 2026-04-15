@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001011,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2019国考副省级',
   question: '11、关于文学作品中的典故，下列解释错误的是：',
   options: [

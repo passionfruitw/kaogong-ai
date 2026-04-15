@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003123,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '平均数倍数',
   examSet: '2024国考行政执法',
   passageId: 20241003121,
   question: '123、2022 年新增投运的电化学储能电站中，平均每个大型电站的能量约是中型电站的多少倍？',

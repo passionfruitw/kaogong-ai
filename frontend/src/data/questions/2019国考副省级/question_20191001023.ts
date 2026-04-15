@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001023,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2019国考副省级',
   question: '23、新一代信息技术与制造业的深度融合，带来了制造模式、生产组织方式和产业形态的深刻变革，智能制造也___。智能制造就是把新一代信息技术___于设计、生产、管理、服务等制造活动的各个环节。  依次填入画横线部分最恰当的一项是：',
   options: [

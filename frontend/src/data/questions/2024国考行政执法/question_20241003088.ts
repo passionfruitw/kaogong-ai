@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003088,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2024国考行政执法',
   question: '88、电力系统的电力设备根据其在运行中所起的作用，分为电力一次设备和电力二次设备。电力一次设备指的是直接参与生产、变换、传输、分配和消耗电能的设备；电力二次设备指的是为了保护并保证电力一次设备的正常运行，对其运行状态进行测量、监视、控制和调节等的设备。根据上述定义，下列说法正确的是：',
   options: [

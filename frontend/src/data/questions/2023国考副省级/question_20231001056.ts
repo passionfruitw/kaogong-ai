@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001056,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2023国考副省级',
   question: '56、填入文中画横线部分最恰当的一项是：',
   options: [

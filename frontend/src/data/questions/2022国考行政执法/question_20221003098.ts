@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003098,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2022国考行政执法',
   question: '98、（单选题）城市公园∶公共设施∶休闲娱乐',
   options: [

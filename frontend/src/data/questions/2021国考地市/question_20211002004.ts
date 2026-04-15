@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002004,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2021国考地市',
   question: '4、2020年3月9日中共中央办公厅发布《党委（党组）落实全面从严治党主体责任规定》，根据该规定，党组（党委）应当加强对本单位（本系统）全面从严治党各项工作的领导。在加强党的建设方面，下列理解不准确的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003013,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2022国考行政执法',
   question: '13、（单选题）下列经济现象或做法符合经济学常理的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001016,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2024国考副省级',
   question: '16、下列对代表性建筑的描述与建筑所在的国家对应错误的是：',
   options: [

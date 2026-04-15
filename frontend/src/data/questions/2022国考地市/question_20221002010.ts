@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002010,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2022国考地市',
   question: '10、新修订的《中华人民共和国行政处罚法》自2021年7月15日起施行。依据该法，下列说法正确的是∶',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001006,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2019国考副省级',
   question: '6、下列与我国军事国防相关的说法错误的是：',
   options: [

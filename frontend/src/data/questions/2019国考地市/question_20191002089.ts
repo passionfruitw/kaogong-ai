@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002089,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '图形推理',
   examSet: '2019国考地市',
   question: '89、沟通网络是信息沟通的结构形式。常见的沟通网络有四种形式：在轮式网络中，一个下级同时与多个主管联系，但主管之间没有沟通的情形。在Y式网络中，第二级有两个上级与之联系，第三级与一个或更多下级发生联系。在环式网络中，每个成员仅与相邻者联系，而不能与更远的成员进行沟通。在全通道式网络中，所有成员间充分进行沟通，所有成员的地位是平等的，无核心人物。  根据上述定义，下列图形反映了轮式网络特点的是：  <div style="text-align: center;">A</div>   <div style="text-align: center;">B.</div>   <div style="text-align: center;">C.</div>   <div style="text-align: center;">E</div>   <div style="text-align: center;">D.</div>',
   images: ['/images/img_in_image_box_120_1509_290_1665.jpg', '/images/img_in_image_box_386_1509_552_1664.jpg', '/images/img_in_image_box_616_1512_714_1653.jpg', '/images/img_in_image_box_821_1544_946_1674.jpg'],

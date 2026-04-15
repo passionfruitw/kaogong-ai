@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002130,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2024国考地市',
   passageId: 20241002126,
   question: '130、以下折线图反映了2019～2022年全国哪一类电信业务收入同比增量的变化趋势？',

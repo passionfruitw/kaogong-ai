@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003128,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2024国考行政执法',
   passageId: 20241003126,
   question: '128、2022 年 12 月，全国规模以上工业企业的①工业机器人完成产量和②服务机器人完成产量：',

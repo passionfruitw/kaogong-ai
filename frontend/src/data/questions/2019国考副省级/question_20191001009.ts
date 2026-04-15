@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2019国考副省级',
   question: '9、图中所示的是“一带一路”沿线的中亚地区，下列说法正确的是：',
   image: '/images/img_in_image_box_364_1349_974_1813.jpg',

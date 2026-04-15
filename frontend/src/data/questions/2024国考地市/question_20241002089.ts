@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002089,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2024国考地市',
   question: '89、中医七方指的是大方、小方、缓方、急方、奇方、偶方、复方七种方剂的总称。其中缓方是指药性缓和，治疗病势缓慢需长期服用的方剂；急方是指药性峻猛，治疗病势重急于取效的方剂；奇方是指单数药物组成的方剂；偶方是指双数药物组成的方剂。  根据上述定义，下列既属于缓方又属于偶方的是：',
   options: [

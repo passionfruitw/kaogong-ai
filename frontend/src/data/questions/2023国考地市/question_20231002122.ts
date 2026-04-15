@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002122,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '平均数倍数',
   examSet: '2023国考地市',
   passageId: 20231002121,
   question: '122、2017-2021年，我国木材进口平均单价高于400美元/吨的年份有几个？',

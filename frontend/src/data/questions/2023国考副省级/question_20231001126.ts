@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001126,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2023国考副省级',
   passageId: 20231001126,
   question: '126、',

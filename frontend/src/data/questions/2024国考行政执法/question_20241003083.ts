@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003083,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2024国考行政执法',
   passageId: 20241003081,
   question: '83、品牌延伸是将著名或成名品牌使用到与原产品不同类型的产品上，是企业在推出新产品过程中经常采用的策略。如果品牌延伸到一个与原产品相对立或易引起消费者反感的产品上，就会对消费者造成心理冲突。消费者只会购买其一，或两者都不买，从而损害原有品牌的形象。根据上述定义，下列情形属于品牌延伸导致消费者心理冲突的是：',

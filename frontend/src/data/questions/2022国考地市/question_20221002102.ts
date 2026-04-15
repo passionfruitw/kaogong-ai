@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002102,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2022国考地市',
   question: '102、动物实验发现，和处于寒冷环境的同等大小的小鼠相比，温暖环境小鼠的骨密度明显增强，很少出现骨质疏松。与此同时，温暖环境中小鼠的肠道菌群更为活跃，当把这些小鼠的肠道菌群移植到寒冷环境的小鼠肠道后，后者骨密度也增强了。由此可见，只要改善肠道菌群活性就可以增强骨密度。  以下哪项如果为真，最能削弱上述论证？',
   options: [

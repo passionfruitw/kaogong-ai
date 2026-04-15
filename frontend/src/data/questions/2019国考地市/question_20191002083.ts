@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002083,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2019国考地市',
   question: '83、同病异治是指中医对相同疾病采取不同的治法，达到治病求本的治疗效果；异病同治是指不同的疾病在发展  根据上述定义，下列属于异病同治的是：',
   options: [

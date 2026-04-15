@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001025,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2023国考副省级',
   question: '25、我们确立和坚持马克思主义在意识形态领域指导地位的根本制度，新时代党的创新理论____，社会主义核心价值观广泛传播，中华优秀传统文化得到创造性转化、创新性发展，文化事业日益繁荣，网络生态持续向好，意识形态领域形势发生____、根本性转变。  依次填入画横线部分最恰当的一项是：',
   options: [

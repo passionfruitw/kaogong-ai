@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001060,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2019国考副省级',
   question: '60、作者接下来最可能：',
   options: [

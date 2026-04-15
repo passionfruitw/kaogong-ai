@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2023国考副省级',
   question: '9、《“十四五”推进农业农村现代化规划》是首部将农业现代化和农村现代化一体设计、一并推进的规划。关于此规划提出的相关措施，下列说法错误的是：',
   options: [

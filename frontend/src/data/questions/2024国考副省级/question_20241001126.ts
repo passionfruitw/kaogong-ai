@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001126,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '平均数倍数',
   examSet: '2024国考副省级',
   passageId: 20241001126,
   question: '126、2022年，中部六省中型灌区新增恢复灌溉面积是东北三省的：',

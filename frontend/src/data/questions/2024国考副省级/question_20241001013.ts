@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001013,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2024国考副省级',
   question: '13、关于我国少数民族非物质文化遗产，下列说法错误的是：',
   options: [

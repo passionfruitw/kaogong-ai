@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003107,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2024国考行政执法',
   passageId: 20241003106,
   question: '107、如果已是 2023 年结对的，那么戊一定是和哪个城市结对的？',

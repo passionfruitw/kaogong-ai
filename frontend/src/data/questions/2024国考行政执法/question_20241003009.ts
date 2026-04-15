@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2024国考行政执法',
   question: '9、2022年11月28日，中共中央办公厅、国务院办公厅发布《乡村振兴责任制实施办法》。下列与乡村振兴责任制有关的说法不准确的是：',
   options: [

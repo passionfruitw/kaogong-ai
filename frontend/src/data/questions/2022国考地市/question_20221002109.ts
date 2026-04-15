@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002109,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2022国考地市',
   passageId: 20221002106,
   question: '109、如果零食类排在第1排，那么下列哪项中的两类商品不可能是相邻的两排？',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002086,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2019国考地市',
   question: '86、按照先后顺序排列的两个数字或者字母称为序对，如2a、e3、dm等等，序对中的第一个数字或者字母称为前项，第二个称为后项。函项指的是由若干序对构成的一个有限序列，其中每个序对的前项都是字母，后项都是数字，并且对于任一序对，如果前项相同，则后项必定相同。  根据上述定义，下列哪项属于函项？',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003125,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '比重',
   examSet: '2024国考行政执法',
   passageId: 20241003121,
   question: '125、关于全国各类电化学储能电站状况，能够从上述资料中推出的是：',

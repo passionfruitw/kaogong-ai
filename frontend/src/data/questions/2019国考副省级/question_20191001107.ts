@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001107,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '削弱加强',
   examSet: '2019国考副省级',
   question: '107、有实验表明，秋葵的提取物——秋葵素，对于治疗动物糖尿病有一定效果。有人据此认为，秋葵切片泡水喝，有助于降低糖尿病人的血糖。  以下哪项如果为真，最能质疑上述论证？',
   options: [

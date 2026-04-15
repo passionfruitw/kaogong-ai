@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003123,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '比重',
   examSet: '2022国考行政执法',
   passageId: 20221003121,
   question: '123、（单选题）2012—2020年，中国IC封装市场中IC先进封装市场规模占比同比提升1个百分点以上的年份有几个？',

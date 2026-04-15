@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001052,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2021国考副省级',
   passageId: 20211001051,
   question: '52、填入第二段画横线部分最恰当的一项是：',

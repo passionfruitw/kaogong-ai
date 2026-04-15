@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003089,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2024国考行政执法',
   question: '89、甲类对象如果全部属于乙类对象，就把表达甲类对象的概念称为种概念，表达乙类对象的概念称为属概念。属种定义是一种明确概念的定义方法，其定义方法是首先找出与被定义概念相邻近的上位属概念，然后找出被定义概念与该邻近属概念下其他种概念之间的差别，以此来定义该概念。  根据上述定义，下列属于属种定义的是：',
   options: [

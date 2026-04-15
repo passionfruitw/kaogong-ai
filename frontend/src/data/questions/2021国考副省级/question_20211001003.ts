@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001003,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2021国考副省级',
   question: '3、党的十八大以来，习近平总书记多次指出，实现中国梦必须弘扬中国精神。下列与之相关的说法不准确的是：',
   options: [

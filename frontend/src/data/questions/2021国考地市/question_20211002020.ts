@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002020,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2021国考地市',
   question: '20、干热岩是埋深数千米的高温岩体，属于一种新兴的地热能源。下列有关说法正确的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001054,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2019国考副省级',
   question: '54、根据所给材料，十六、十七世纪的欧洲生活中最不可能出现的场景是：',
   options: [

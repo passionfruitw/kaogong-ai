@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003010,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2022国考行政执法',
   question: '10、（单选题）下列甲乙丙丁的行为构成利用影响力受贿罪的是：',
   options: [

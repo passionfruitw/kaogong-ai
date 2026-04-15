@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003123,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2023国考行政执法',
   passageId: 20231003121,
   question: '123、2021年，松木、冷杉和针叶木材进口量之和占当年我国木材进口总量的：',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001010,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2022国考副省级',
   question: '10、（单选题）2021年4月27日，国务院常务会议上确定了知识产权领域“放管服”改革新举措。下列与之相关的说法错误的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001105,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '类比推理',
   examSet: '2022国考副省级',
   question: '105、（单选题）自然声源 对于 （ ） 相当于 （ ） 对于 煤炭',
   options: [

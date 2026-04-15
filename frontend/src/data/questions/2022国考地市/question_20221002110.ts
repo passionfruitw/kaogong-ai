@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002110,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2022国考地市',
   passageId: 20221002106,
   question: '110、如果饮料类排在第1排，则以下哪项是可能的？',

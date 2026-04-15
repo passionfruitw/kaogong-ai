@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001095,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2019国考副省级',
   question: '95、变文和连文是古汉语中常用的修辞方法。变文是指为了避重而在相临近的句子中采用同义词来表达相同的意义。连文是指本来要表达甲，而连带说到乙，使两个相关联的词连在一起，但突出表达其中一个词的意义。  根据上述定义，下列使用了连文这一修辞方法的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002117,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2019国考地市',
   passageId: 20191002116,
   question: '117、“十二五”（2011～2015年）期间，全国二手车总计交易约多少亿辆？',

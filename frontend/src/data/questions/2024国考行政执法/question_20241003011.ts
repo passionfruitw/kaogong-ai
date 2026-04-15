@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003011,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2024国考行政执法',
   question: '11、下列做法符合《中华人民共和国行政处罚法》规定的是：',
   options: [

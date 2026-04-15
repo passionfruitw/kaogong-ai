@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002085,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2022国考地市',
   question: '85、量表法是运用量表形式测定被调查者对问题的态度的方法。根据不同用途,量表可分为直接量表和间接量表。直接量表中,调查者设计问题并询问被调查者,被调查者在有关量表上直接表明其态度;间接量表中,被调查者按其态度或意愿,在备选问题或语句中选择出合适的语句代表其态度。  根据上述定义,下列属于间接量表的是:',
   options: [

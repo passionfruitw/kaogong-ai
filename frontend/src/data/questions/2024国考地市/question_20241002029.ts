@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002029,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2024国考地市',
   question: '29、“潜”是“显”的基础，“显”是“潜”的结果。对于事关长远讲事关基础的任务，“一口吃不成个胖子”，就要扎扎实实、稳步有序推进。这些工作并不___，政绩也并非___，但有助于各项事业全面发展、长足进步，是真正对党、对人民、对历史负责的体现。  依次填入画横线部分最恰当的一项是：',
   options: [

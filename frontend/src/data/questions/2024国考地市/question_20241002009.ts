@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2024国考地市',
   question: '9、根据《中华人民共和国立法法》下列说法错误的是：',
   options: [

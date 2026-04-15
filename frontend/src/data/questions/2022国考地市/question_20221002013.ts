@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002013,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2022国考地市',
   question: '13、下列毛泽东诗词与创作背景对应正确的是：',
   options: [

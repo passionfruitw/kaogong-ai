@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001019,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2021国考副省级',
   question: '19、下列与口罩相关的说法正确的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002099,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '类比推理',
   examSet: '2021国考地市',
   question: '99、杠杆 对于（）相当于（）对于 成语',
   options: [

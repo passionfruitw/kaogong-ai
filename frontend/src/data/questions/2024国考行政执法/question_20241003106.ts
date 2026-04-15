@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003106,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2024国考行政执法',
   passageId: 20241003106,
   question: '106、下列哪项是可能的先后依次结对的城市名单?',

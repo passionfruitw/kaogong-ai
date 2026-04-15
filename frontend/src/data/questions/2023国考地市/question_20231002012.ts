@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002012,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2023国考地市',
   question: '12、根据《中华人民共和国职业教育法》，关于企业开展职业教育，下列说法错误的是：',
   options: [

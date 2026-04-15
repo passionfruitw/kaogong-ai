@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002108,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2022国考地市',
   passageId: 20221002106,
   question: '108、零食类和文具类中间最多可能隔几排？',

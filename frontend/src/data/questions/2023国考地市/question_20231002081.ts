@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002081,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2023国考地市',
   question: '81、微量鉴定是指运用物理学、化学和仪器分析等方法，通过对案件现场有关物质材料(材料特点多为体小量微、不易注意)的成分及其结构进行定性、定量分析，对检材的种类、检材和嫌疑样本的同类性和同一性进行鉴定。  根据以上定义，下列涉及交通事故的鉴定属于微量鉴定的是：',
   options: [

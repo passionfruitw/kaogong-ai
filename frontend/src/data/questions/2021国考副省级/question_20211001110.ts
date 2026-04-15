@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001110,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2021国考副省级',
   question: '110、某便利店新进了一批个性商品，如带酸味的啤酒，芥末味道的饼干等，这些个性商品摆放在单独设立的区域进行销售，三个月之后，店长发现：和之前没有引进个性商品时相比，店里的总销售额大幅提升，所以店长认为销售额增加的主要原因是引进了这些个性商品。  以下哪项如果为真，最能支持店长的观点？',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002110,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2019国考地市',
   passageId: 20191002106,
   question: '110、补充以下哪项，可以确定该场比赛中3名选手各自的答题编号？',

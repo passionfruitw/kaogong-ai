@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003064,
   module: '数量关系',
-  knowledgePoint: '数量关系',
+  knowledgePoint: '代数方程',
   examSet: '2022国考行政执法',
   question: '64、（单选题）某水果种植特色镇创办水果加工厂，从去年年初开始通过电商平台销售桃汁、橙汁两种产品。从去年2月开始，每个月桃汁的销量都比上个月多5000盒，橙汁的销量都比上个月多2000盒。已知去年第一季度桃汁的总销量比橙汁少4.5 万盒，则去年桃汁的销量比橙汁：',
   options: [

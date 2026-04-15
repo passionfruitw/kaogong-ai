@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001131,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2023国考副省级',
   passageId: 20231001131,
   question: '131、2020年，全国服装出口额比2019年：',

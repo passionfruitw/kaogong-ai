@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001006,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2022国考副省级',
   question: '6、（单选题）在中国共产党成立一百周年的重要时刻，我国脱贫攻坚战取得了全面胜利。下列与之相关的说法错误的是:',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003088,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2022国考行政执法',
   question: '88、（单选题）除草剂必须具有良好的选择性，即在一定的用量与使用期内，能够防除杂草而又不伤害作物。其中,形态选择性是利用作物与杂草的形态结构差异而获得的选择性。生化选择性是利用作物和杂草在代谢过程中活化机制和解毒反应差异而产生的选择性。  根据上述定义，下列属于生化选择性的是:',
   options: [

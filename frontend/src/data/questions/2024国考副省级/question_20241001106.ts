@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001106,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '日常结论',
   examSet: '2024国考副省级',
   question: '106、人民是创作的源头活水，只有扎根人民，创作才能取得取之不尽、用之不竭的源泉。文化文艺工作者要走进实践深处，观照人民生活，表达人民心声，用心用情用功抒写人民、描绘人民、歌唱人民。哲学社会科学工作者要多到实地调查研究，了解百姓生活状况，把握群众思想脉搏，着眼群众需要解疑释惑、阐明道理，把学问写进群众心坎儿里。  由此可以推出：',
   options: [

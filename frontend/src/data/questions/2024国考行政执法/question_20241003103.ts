@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003103,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '削弱加强',
   examSet: '2024国考行政执法',
   question: '103、W 国对咖啡领域的调查显示，去年 W 国咖啡领域的融资金额高达 5 亿元，该国许多知名企业跨界进入咖啡行业，本土咖啡品牌在快速崛起。然而经过去年一年的销售发现，W 国线下咖啡门店的总数虽然有所增加，但咖啡销量与往年相比并未明显增加，因此有人认为咖啡在 W 国居民中不是很受欢迎。  以下哪项如果为真，最能削弱上述观点？',
   options: [

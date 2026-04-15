@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003100,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '类比推理',
   examSet: '2024国考行政执法',
   question: '100、重型战机对于（）相当于（）对于分辨率',
   options: [

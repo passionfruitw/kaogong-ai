@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2021国考地市',
   question: '9、根据《中国共产党纪律处分条例》，下列说法中正确的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002011,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2021国考地市',
   question: '11、《中共中央 国务院关于抓好“三农”领域重点工作确保如期实现全面小康的意见》（2020年中央一号文件）未提及以下哪一内容：',
   options: [

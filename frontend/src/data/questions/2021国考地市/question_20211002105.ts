@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002105,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '削弱加强',
   examSet: '2021国考地市',
   question: '105、近日，有研究团队通过对44个反刍动物物种的基因组测序研究，创建了一个反刍动物的系统进化树，从而解析大量反刍动物的演化史。结果揭示，在近10万年前，反刍动物种群发生大幅衰减，而这些种群数的减少与人类向非洲之外迁徙的时间相符。有人据此认为，这佐证了早期人类活动造成了反刍动物种群的衰减。  以下哪项如果为真，最能质疑上述结论？',
   options: [

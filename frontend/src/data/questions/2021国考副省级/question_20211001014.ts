@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001014,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2021国考副省级',
   question: '14、下列与贷款有关的说法错误的是：',
   options: [

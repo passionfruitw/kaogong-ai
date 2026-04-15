@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001108,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '日常结论',
   examSet: '2022国考副省级',
   question: '108、（单选题）一颗恒星足够大且经过超新星爆发，才会坍缩为一颗中子星并伴随磁场增强。在这些中子星中，只有拥有强大磁场和高自转速度才能成为磁星。一般认为，磁星的磁场是在恒星变成中子星的首十秒透过炽热内核物质的对流所产生的，只有在对流现象发生期间拥有高自转速度（周期约10毫秒左右），其产生的电流才会传遍整颗天体。  由此可以推出∶',
   options: [

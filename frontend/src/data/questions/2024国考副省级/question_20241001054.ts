@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001054,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '细节判断',
   examSet: '2024国考副省级',
   question: '54、关于科学家围绕植物发声的研究，下列说法正确的是：',
   options: [

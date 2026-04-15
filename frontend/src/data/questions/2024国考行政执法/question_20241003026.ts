@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003026,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2024国考行政执法',
   question: '26、北极地区常年漂浮着体积巨大、厚薄不一的海冰。面对这些海冰，绝大部分战舰只能___，唯有破冰船和冰面下的潜艇敢于一试身手。当前，世界上力量最强的破冰船，排水量可达3.3万吨，能够___地破开近3米厚的坚冰，堪称北极航线上的开路先锋。  依次填入画横线部分最恰当的一项是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002121,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2024国考地市',
   passageId: 20241002121,
   question: '121、2016 年～2020 年，我国马铃薯总产量在以下哪个范围内？',

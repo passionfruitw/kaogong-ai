@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002013,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2024国考地市',
   question: '13、下列与企业应负担的税种有关的说法正确的是：',
   options: [

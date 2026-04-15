@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003016,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2022国考行政执法',
   question: '16、（单选题）关于我国航天事业，下列说法正确的是：',
   options: [

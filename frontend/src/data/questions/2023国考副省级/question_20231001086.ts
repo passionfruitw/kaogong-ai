@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001086,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2023国考副省级',
   question: '86、化学动力学是研究化学反应速率和反应机理的化学分支学科，主要内容包括：(1)确定化学反应的速率以及温度、压力、催化剂、溶剂和光照等外界因素对反应速率的影响；(2)研究化学反应机理，揭示化学反应速率本质；(3)探求物质结构与反应能力之间的关系和规律。  根据上述定义，下列没有体现化学动力学研究的是：',
   options: [

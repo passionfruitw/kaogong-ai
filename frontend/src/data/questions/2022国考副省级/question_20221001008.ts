@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001008,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2022国考副省级',
   question: '8、（单选题）《中华人民共和国宪法》（1982年）实施以来，先后五次以修正案的形式进了修改。下列宪法条款与宪法修正案对应正确的是：',
   options: [

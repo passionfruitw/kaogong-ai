@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001110,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '削弱加强',
   examSet: '2019国考副省级',
   question: '110、应激本身没有致痛能力，但是流行病学调查发现，长期应激与疼痛慢性化的发生正相关，即压力下的人群，其疼痛症状更易迁延，进而发展为慢性疼痛。  以下哪项如果为真，最能支持上述调查结果？',
   options: [

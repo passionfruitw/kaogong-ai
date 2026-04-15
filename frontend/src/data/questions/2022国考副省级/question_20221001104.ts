@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001104,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '类比推理',
   examSet: '2022国考副省级',
   question: '104、（单选题）纪录片 对于 （ ） 相当于 （ ） 对于 客观题',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002129,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '平均数倍数',
   examSet: '2023国考地市',
   passageId: 20231002126,
   question: '129、2021年，H省除Z市外其他地区的电子商务平台平均每个平台实现的交易金额约为多少亿元？',

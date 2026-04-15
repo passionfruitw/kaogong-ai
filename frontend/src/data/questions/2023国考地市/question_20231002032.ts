@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002032,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2023国考地市',
   question: '32、长期以来，城管执法部门对职责内的执法事项通常是___“用力”，对所有的执法对象“一碗水端平”，以体现执法的公平性、公正性。但对于超大城市而言，由于城管执法事项繁多，涉及市场主体庞杂，而城管执法力量是有限的，实践中很难做到___，进而可能会影响执法效果和执行力。依次填入画横线部分最恰当的一项是：',
   options: [

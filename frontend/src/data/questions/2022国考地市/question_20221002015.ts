@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002015,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2022国考地市',
   question: '15、我国很多成语都与植物有关，下列有关说法错误的是：',
   options: [

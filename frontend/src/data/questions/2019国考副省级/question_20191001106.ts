@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001106,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2019国考副省级',
   question: '106、所有的幼儿园都面临同一个问题：就是对于那些在幼儿园放学之后不能及时来接孩子的家长，幼儿园老师除了等待别无他法，因此许多幼儿园都向晚接孩子的家长收取费用。然而，有调查显示，收取费用后晚接孩子的家长数量并未因此减少，反而增加了。  以下哪项如果为真，最能解释上述调查结果？',
   options: [

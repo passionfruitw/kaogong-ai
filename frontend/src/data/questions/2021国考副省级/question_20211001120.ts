@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001120,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '比重',
   examSet: '2021国考副省级',
   passageId: 20211001116,
   question: '120、关于 2019 年直排海污染源状况，不能从上述资料中推出的是：',

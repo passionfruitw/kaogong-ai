@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003100,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '类比推理',
   examSet: '2023国考行政执法',
   question: '100、刑事警察 对于 （ ） 相当于 （ ） 对于 对外交涉',
   options: [

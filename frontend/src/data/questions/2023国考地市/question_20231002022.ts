@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002022,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2023国考地市',
   question: '22、“报得准” 是气象监测预报预警的生命力。天气预报准确率高，防灾减灾才能___，为有关部门正确决策提供科学客观的支撑，应急处置才能有力有效。  填入画横线部分最恰当的一项是：',
   options: [

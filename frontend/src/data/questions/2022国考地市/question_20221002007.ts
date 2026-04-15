@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002007,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2022国考地市',
   question: '7、根据《中华人民共和国国民经济和社会发展第十四个五年规划和 2035年远景目标纲要》，下列不属于“十四五”规划重要目标的是：',
   options: [

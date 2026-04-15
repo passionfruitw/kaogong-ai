@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002105,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2019国考地市',
   question: '105、所有的地震都是以 P 波开始的，这些 P 波移动快速，使地面发生上下震动，造成的破坏较小。下一个是 S 波，它的移动很慢，使地面前后、左右晃动，破坏性极大。早期预警系统通过测量 P 波沿地面移动的情况，来预测 S 波所造成的影响，然后发出警报。然而，从事此类系统工作的科学家们发现，事实上人们并没有多少时间为大地震做好准备。  要得到上述结论，需要补充的最重要前提是：',
   options: [

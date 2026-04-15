@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002015,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2024国考地市',
   question: '15、2023 年 2 月 6 日，自然资源部印发《公开地图内容表示规范》，下列说法与之不相符的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003120,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2022国考行政执法',
   passageId: 20221003116,
   question: '120、（单选题）以下折线图反映了2020年第二季度各月哪类环保举报件数环比增量的变化趋势？',

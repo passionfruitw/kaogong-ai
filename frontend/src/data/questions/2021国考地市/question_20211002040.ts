@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002040,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2021国考地市',
   question: '40、随着各种侦察手段的不断演进，可视侦察、红外侦察、雷达侦察等“________”，现代坦克在战场上越来越难以藏身。对此，现在坦克当然不会“________”。在讲求“发现即摧毁”的现代战场上，坦克必须实现对侦察手段的“免疫”。见招拆招，________，让对手对自己庞大的身躯“视若无睹”。  依次填入画横线部分最恰当的一项是：',
   options: [

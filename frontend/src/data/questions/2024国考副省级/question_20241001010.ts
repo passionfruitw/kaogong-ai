@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001010,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2024国考副省级',
   question: '10、关于《中华人民共和国预备役人员法》，下列说法错误的是：',
   options: [

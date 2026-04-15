@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001011,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2023国考副省级',
   question: '11、习近平主席在二〇二二年新年贺词中提到了“祝融”探火、“羲和”逐日、“天和”遨游星辰。下列与之相关的说法正确的是：',
   options: [

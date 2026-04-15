@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003003,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2023国考行政执法',
   question: '3、党的二十大报告指出，要增进民生福祉，提高人民生活品质。下列有关表述正确的是：',
   options: [

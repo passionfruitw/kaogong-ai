@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002006,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2023国考地市',
   question: '6、《“十四五”全国农业绿色发展规划》是我国首部农业绿色发展专项规划，对“十四五”农业绿色发展工作作出了系统部署和具体安排。下列与之相关的说法错误的是：',
   options: [

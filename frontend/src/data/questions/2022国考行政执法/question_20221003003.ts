@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003003,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2022国考行政执法',
   question: '3、（单选题）“七一勋章”获得者都来自人民、植根人民，是立足本职、默默奉献的平凡英雄。他们的事迹可学可做，他们的精神可追可及，以下“七一勋章”获得者与其先进事迹表述对应正确的是：',
   options: [

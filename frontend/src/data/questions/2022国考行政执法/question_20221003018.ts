@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003018,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2022国考行政执法',
   question: '18、（单选题）下列物理学家与名言对应错误的是：',
   options: [

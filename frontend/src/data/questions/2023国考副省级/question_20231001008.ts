@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001008,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2023国考副省级',
   question: '8、根据《中华人民共和国乡村振兴促进法》，下列说法正确的是：',
   options: [

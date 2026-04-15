@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003103,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2023国考行政执法',
   question: '103、调查显示，84.8% 的家长倾向于给孩子购买标有 “儿童” 字样的食品。几乎每一款 “儿童食品” 都宣称 “无添加，适合孩子健康成长”。家长热衷于购买有 “儿童” 标签的食品是因为他们觉得，标有 “儿童” 字样的食品更加营养健康，更适合儿童。  以下哪项如果为真，最能质疑家长的观点？',
   options: [

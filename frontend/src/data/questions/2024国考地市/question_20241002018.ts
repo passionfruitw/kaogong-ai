@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002018,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2024国考地市',
   question: '18、某展览馆举办的“奋进新时代”主题成就展设置了一些地方展区。下列场景最可能出现的是：',
   options: [

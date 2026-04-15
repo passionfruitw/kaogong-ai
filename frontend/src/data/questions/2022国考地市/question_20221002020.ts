@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002020,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2022国考地市',
   question: '20、我国自古十分重视对人的品德的培养。下列有关“德”的表述与出处对应错误的是：',
   options: [

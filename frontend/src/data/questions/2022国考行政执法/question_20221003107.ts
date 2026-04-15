@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003107,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2022国考行政执法',
   question: '107、（单选题）按照从前完后，下列哪项排列是可能的？',
   options: [

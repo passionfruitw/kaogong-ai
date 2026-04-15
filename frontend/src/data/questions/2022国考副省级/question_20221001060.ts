@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001060,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2022国考副省级',
   passageId: 20221001056,
   question: '60、（单选题）最适合做这篇文章标题的是：',

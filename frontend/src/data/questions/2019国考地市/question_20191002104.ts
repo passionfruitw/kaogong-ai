@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002104,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '削弱加强',
   examSet: '2019国考地市',
   question: '104、自从前年甲航运公司实行了经理任期目标责任制之后，公司的经济效益也随之逐年上升。可见，只有经理任期目标责任制，才能使甲公司经济效益稳步增长。  以下哪项如果为真，最能削弱上述论证？',
   options: [

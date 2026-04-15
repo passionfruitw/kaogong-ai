@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001119,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '增长率',
   examSet: '2019国考副省级',
   passageId: 20191001116,
   question: '119、以下折线图中，能准确反映2017年第四季度各月全国进口药品金额环比增长率的是：  <div style="text-align: center;">A.</div>   <div style="text-align: center;">B.</div>   <div style="text-align: center;">C.</div>   <div style="text-align: center;">D.</div>',

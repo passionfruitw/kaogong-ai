@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2022国考副省级',
   question: '9、（单选题）根据《中华人民共和国政务处分法》，下列哪一处分不恰当？',
   options: [

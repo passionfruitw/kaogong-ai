@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001087,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2022国考副省级',
   question: '87、（单选题）按调查范围来看，可将调查分为全面调查和非全面调查。全面调查指的是一定范围内的情况普查;非全面调查是指从总体中抽取一部分对象进行情况调查，又可分为:根据随机原则选择样本的抽样调查和有意识选取若干样本进行的典型调查。  根据上述定义，下列说法正确的是:',
   options: [

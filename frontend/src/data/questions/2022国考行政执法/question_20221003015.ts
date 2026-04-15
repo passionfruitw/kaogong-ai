@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003015,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2022国考行政执法',
   question: '15、（单选题）2020年12月8日，国家主席习近平同尼泊尔总统班达里互致信函，共同宣布珠穆朗玛峰高程。关于此次珠峰高程测量，下列说法错误的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002086,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2022国考地市',
   question: '86、基因污染指原生物种基因库非预期或不受控制的基因流动,即外源基因通过转基因作物、外来入侵物种、家养动物等扩散到其他栽培作物或自然野生物种并成为后者基因的一部分。  根据上述定义,下列没有体现出基因污染的是:',
   options: [

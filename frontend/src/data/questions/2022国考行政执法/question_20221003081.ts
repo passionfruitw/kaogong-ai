@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003081,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2022国考行政执法',
   question: '81、（单选题）同种数罪是指行为人实施数个行为,符合数个性质相同的基本犯罪构成，触犯数个罪名相同的数罪。  根据上述定义,下列情形属于同种数罪的是:',
   options: [

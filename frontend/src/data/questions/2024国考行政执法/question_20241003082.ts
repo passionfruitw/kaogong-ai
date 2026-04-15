@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003082,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2024国考行政执法',
   passageId: 20241003081,
   question: '82、动物的战斗行为在进化中演变出一种既能决定胜负又能减少伤亡的相对固定的方式，这种方式被称为仪式化战斗。  根据上述定义，下列不属于仪式化战斗的是：  【认准淘宝店铺：通关达人资料库】考研，公考，一站式备考，持续更新',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003126,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '平均数倍数',
   examSet: '2022国考行政执法',
   passageId: 20221003126,
   question: '126、（单选题）2020年1—5月，全国平均每月打掉电信网络诈骗犯罪团伙：',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003117,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2024国考行政执法',
   passageId: 20241003116,
   question: '117、2022年，中部六省中型灌区新增节水能力占全国中型灌区的：',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003008,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2022国考行政执法',
   question: '8、（单选题）新修正的《中华人民共和国安全生产法》自2021年9月1日起施行。依据该法，下列说法正确的是：',
   options: [

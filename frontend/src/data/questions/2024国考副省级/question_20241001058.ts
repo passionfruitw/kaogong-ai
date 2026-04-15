@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241001058,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2024国考副省级',
   passageId: 20241001056,
   question: '58、关于采石浮桥，文中没有提及：',

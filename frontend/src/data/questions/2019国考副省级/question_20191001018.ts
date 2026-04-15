@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001018,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2019国考副省级',
   question: '18、摄影师在野外环境中最不可能拍摄到的是：',
   options: [

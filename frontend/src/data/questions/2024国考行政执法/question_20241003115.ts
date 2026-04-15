@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003115,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '比重',
   examSet: '2024国考行政执法',
   passageId: 20241003111,
   question: '115、关于 2022 年 S 省各级 12315 工作机构接收诉求状况，不能从上述资料中推出的是：',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001029,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2021国考副省级',
   question: '29、近代以来，怎样处理中国传统文化与西方文化的关系，成为很多学者关注的重要问题，有人主张全盘西化，也有人主张全面恢复传统。这些的观点当然受到了当时历史环境的影响，但也暴露出一些人在思维模式上的局限，即用的思维来看待复杂的文化现象。这种思维模式在今天的研究中依然不同程度地存在。  依次填入画横线部分最恰当的一项是：',
   options: [

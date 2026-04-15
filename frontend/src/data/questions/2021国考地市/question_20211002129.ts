@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002129,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '比重',
   examSet: '2021国考地市',
   passageId: 20211002126,
   question: '129、2019年，我国知识密集型服务出口额占服务出口额比重：',

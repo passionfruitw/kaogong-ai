@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001017,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2023国考副省级',
   question: '17、我国将24种矿产列为战略性矿产资源，下列与之相关的说法错误的是：',
   options: [

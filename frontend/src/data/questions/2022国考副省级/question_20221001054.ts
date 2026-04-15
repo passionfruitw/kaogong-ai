@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001054,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2022国考副省级',
   passageId: 20221001051,
   question: '54、（单选题）下列哪一说法能在这篇文章中得到印证？',

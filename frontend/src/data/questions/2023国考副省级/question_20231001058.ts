@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001058,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '细节判断',
   examSet: '2023国考副省级',
   question: '58、下列哪项不是这篇文章中提到的科学家的研究结果？',
   options: [

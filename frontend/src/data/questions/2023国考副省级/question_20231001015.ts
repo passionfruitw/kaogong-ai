@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001015,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2023国考副省级',
   question: '15、下列与氢燃料电池车有关的说法错误的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003089,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2023国考行政执法',
   question: '89、子弹时间即计算机辅助的摄影技术模拟变速特效，是一种使用在电影、电视节目或电脑游戏等领域的摄影技术模拟变速特效，例如强化的慢镜头、时间静止等效果。  根据上述定义，下列描述符合子弹时间的是：',
   options: [

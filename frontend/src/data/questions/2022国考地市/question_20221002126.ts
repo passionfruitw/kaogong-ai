@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002126,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2022国考地市',
   passageId: 20221002126,
   question: '126、2021年1月，C市天然气用量比上月：',

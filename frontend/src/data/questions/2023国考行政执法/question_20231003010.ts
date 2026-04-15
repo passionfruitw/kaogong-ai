@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003010,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2023国考行政执法',
   question: '10、根据《中华人民共和国噪声污染防治法》，下列噪声污染情形与作出责令改正或处罚决定的主体对应错误的是：',
   options: [

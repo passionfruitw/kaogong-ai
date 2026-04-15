@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003010,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2024国考行政执法',
   question: '10、习近平总书记强调，要把黑土地保护作为一件大事来抓，把黑土地用好养好。《中华人民共和国黑土地保护法》自2022年8月1日起施行，下列表述不符合该法规定的是：',
   options: [

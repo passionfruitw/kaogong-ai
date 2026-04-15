@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002070,
   module: '数量关系',
-  knowledgePoint: '数量关系',
+  knowledgePoint: '几何',
   examSet: '2023国考地市',
   question: '70、甲、乙两名职工负责国庆7天长假的值班工作，每天安排1人值班。已知乙至少值了2天班，且在国庆期间任一天结束后，甲的累计值班天数都比乙的多。问两人的值班日期安排有多少种不同的可能？',
   options: [

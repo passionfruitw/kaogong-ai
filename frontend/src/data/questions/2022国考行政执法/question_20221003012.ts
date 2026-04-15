@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003012,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2022国考行政执法',
   question: '12、（单选题）下列做法符合《中华人民共和国乡村振兴促进法》的是：',
   options: [

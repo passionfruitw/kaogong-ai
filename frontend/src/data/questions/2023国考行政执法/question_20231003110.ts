@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003110,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2023国考行政执法',
   question: '110、如果没有安排财务和后勤部门的人值班，则以下哪项一定是正确的？',
   options: [

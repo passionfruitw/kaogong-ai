@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001113,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '类比推理',
   examSet: '2019国考副省级',
   question: '113、有位青年到杂志社询问投稿结果。编辑说：“你的稿子我看过了，总的来说有一些基础，不过在语言表达上仍不够成熟，流于幼稚。”青年问：“那能不能把它当作儿童文学作品呢？”  下列选项中与青年所犯的逻辑错误相同的是：',
   options: [

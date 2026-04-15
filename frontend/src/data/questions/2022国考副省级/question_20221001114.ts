@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001114,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2022国考副省级',
   question: '114、（单选题）由于集合了榨汁机、豆浆机、料理机、研磨机等产品功能，破壁机近年来一直备受消费者青睐。某公司生产了 R 型和 W 型两款功能相同的破壁机，相比而言R 型清洗更方便，W型噪音更小。上市三年后的数据显示，R 型销量更好，所以公司认为消费者更喜欢易于清洗的破壁机产品。  以下哪项如果为真，最能削弱上述观点?',
   options: [

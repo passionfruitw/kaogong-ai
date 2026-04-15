@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003008,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2023国考行政执法',
   question: '8、根据《中华人民共和国退役军人保障法》，下列说法正确的是：',
   options: [

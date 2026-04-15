@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002130,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '增长率',
   examSet: '2023国考地市',
   passageId: 20231002126,
   question: '130、关于H省电子商务交易，能够从上述资料中推出的是：',

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001131,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '增长率',
   examSet: '2019国考副省级',
   passageId: 20191001131,
   question: '131、2017年A省邮电业务总量同比增速在以下哪个范围之内？',

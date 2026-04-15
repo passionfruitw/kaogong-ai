@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002110,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2021国考地市',
   passageId: 20211002106,
   question: '110、如果科研和宣传由一个人分管，那么下列哪项是可能的？',

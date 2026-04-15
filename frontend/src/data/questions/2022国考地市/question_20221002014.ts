@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002014,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2022国考地市',
   question: '14、财政是国家治理的基础和重要支柱，科学的财税体制是优化资源配置、维护市场统一、促进社会公平、实现国家长治久安的制度保障。下列关于我国财税制度变迁的表述错误的是：',
   options: [

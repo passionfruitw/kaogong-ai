@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001005,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2019国考副省级',
   question: '5、2018年3月11日，十三届全国人大一次会议通过了《中华人民共和国宪法修正案》。下列与之相关的说法不准确的是：',
   options: [

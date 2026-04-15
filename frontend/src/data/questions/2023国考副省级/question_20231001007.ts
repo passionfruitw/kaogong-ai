@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001007,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2023国考副省级',
   question: '7、中共中央、国务院印发了《黄河流域生态保护和高质量发展规划纲要》，根据该纲要，下列表述错误的是：',
   options: [

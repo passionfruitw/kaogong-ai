@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002113,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2022国考地市',
   passageId: 20221002111,
   question: '113、2020 年，H 省秋粮玉米和稻谷的亩产与上年相比：',

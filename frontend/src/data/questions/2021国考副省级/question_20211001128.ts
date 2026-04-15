@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001128,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2021国考副省级',
   passageId: 20211001126,
   question: '128、如提供视力残疾康复服务的残疾人康复机构中，同时提供听力言语残疾康复服务的机构比不提供该服务的机构多 20% ，则 2019 年末全国有多少家残疾人康复机构不提供以上两种康复服务中的任意一种？',

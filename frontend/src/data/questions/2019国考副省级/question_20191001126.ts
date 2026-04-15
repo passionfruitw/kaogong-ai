@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191001126,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '综合分析',
   examSet: '2019国考副省级',
   passageId: 20191001126,
   question: '126、2018年第一季度全国处理钓鱼网站总数：',

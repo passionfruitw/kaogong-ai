@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003008,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2024国考行政执法',
   question: '8、为深入学习贯彻习近平新时代中国特色社会主义思想，全面贯彻落实党的二十大精神，党中央决定，在全党大兴调查研究，作为在全党开展的主题教育的重要内容。下列与调查研究有关的说法不准确的是：',
   options: [

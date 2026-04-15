@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001093,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2023国考副省级',
   question: '93、对称推断法是辨析文言词义的一种方法，是指通过对运用了对偶修辞格或排比修辞格的句子内部已知词语词义的分析，推断其位置相对的文言词义的一种方法。  根据上述定义，下列使用了对称推断法的是：',
   options: [

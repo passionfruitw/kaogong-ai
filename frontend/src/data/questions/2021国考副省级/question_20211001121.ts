@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001121,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '增长率',
   examSet: '2021国考副省级',
   passageId: 20211001121,
   question: '121、2014—2019年间，全国地铁运营线路长度同比增长 20% 以上的年份有几个？',

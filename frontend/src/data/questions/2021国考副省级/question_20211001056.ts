@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001056,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2021国考副省级',
   passageId: 20211001056,
   question: '56、如果穿越回古代，根据本文，看不到下列哪一情景？',

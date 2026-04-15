@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001059,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '细节判断',
   examSet: '2021国考副省级',
   passageId: 20211001056,
   question: '59、根据本文，下列说法正确的是：',

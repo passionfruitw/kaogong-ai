@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002118,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '平均数倍数',
   examSet: '2019国考地市',
   passageId: 20191002116,
   question: '118、2017年1～10月，平均每月全国二手车交易量约为多少万辆？',

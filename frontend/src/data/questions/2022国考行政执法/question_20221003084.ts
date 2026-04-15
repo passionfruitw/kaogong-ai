@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003084,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2022国考行政执法',
   question: '84、（单选题）在生物学、医学及其子科学的研究中，对从通常的生物学环境中分离出的生物体组织成分进行体外研究的实验称为体外实验;在活体生物机体之中进行研究的实验称为体内实验。  根据上述定义，下列属于体外实验的是:',
   options: [

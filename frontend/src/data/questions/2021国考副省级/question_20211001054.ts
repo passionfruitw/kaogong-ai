@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001054,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2021国考副省级',
   passageId: 20211001053,
   question: '54、下列哪一内容未在文中明确提及？',

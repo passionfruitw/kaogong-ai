@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002125,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '增长率',
   examSet: '2022国考地市',
   passageId: 20221002121,
   question: '125、关于2021 年第一季度市场监管部门食品安全监督情况，以下信息能够从上述资料中推出的有几项？  \textcircled1 蔬菜、水果制品的总体抽检合格率高于 9 5 %    \textcircled2 样品抽检量超过1万批次的食品类别有12个   \textcircled3 糕点类食品的抽检合格量是不合格量的50倍以上',

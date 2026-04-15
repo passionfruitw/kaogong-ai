@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001088,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2021国考副省级',
   question: '88、国际多式联运是指按照多式联运合同，以至少两种不同的运输方式，由多式联运经营人将货物从一国境内接货地点运至另一国境内指定交货地点的一种运输方式。  根据上述定义，下列属于国际多式联运的是：',
   options: [

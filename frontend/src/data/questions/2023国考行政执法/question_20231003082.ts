@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003082,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2023国考行政执法',
   question: '82、架构创新是指组成产品的基本元件不变，但是整体结构布局改变，即将相同元件进行整体结构的重新调整，进而产生新功能的创新。  根据上述定义，下列属于架构创新的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002099,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '类比推理',
   examSet: '2023国考地市',
   question: '99、深空探测 对于（ ）相当于（ ）对于公益组织',
   options: [

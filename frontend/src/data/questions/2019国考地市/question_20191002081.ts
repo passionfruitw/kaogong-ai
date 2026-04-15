@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002081,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '图形推理',
   examSet: '2019国考地市',
   question: '81、定律假说是对一类事物或现象的性质或发生原因作出推测性解释，得出一个可能具有普遍性意义的规律性命题，从而试图建立、发展或补充科学理论。  根据上述定义，下列属于定律假说的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001058,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '细节判断',
   examSet: '2022国考副省级',
   passageId: 20221001056,
   question: '58、（单选题）根据这篇文中，下列说法正确的是：',

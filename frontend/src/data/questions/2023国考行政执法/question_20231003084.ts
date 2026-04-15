@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003084,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2023国考行政执法',
   question: '84、体验式采访是指直接投入到所要报道的新闻事件中去体验生活，以获得新闻报道所需要件的认识。  根据上述定义，下列不属于体验式采访的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002005,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2019国考地市',
   question: '5、根据我国宪法和有关法律，下列国家机关的哪一做法不符合规定？',
   options: [

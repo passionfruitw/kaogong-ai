@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002015,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2023国考地市',
   question: '15、近年来，我国不断推进水生态修复保护工作。生态塘是包含水生动植物和微生物的一种水生态修复方式。下列与之相关的说法，错误的是：',
   options: [

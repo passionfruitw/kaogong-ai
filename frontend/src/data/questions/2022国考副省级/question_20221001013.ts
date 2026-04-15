@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001013,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2022国考副省级',
   question: '13、（单选题）关于我国近年来取得的重大科技成就，下列说法错误的是;',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241003101,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2024国考行政执法',
   question: '101、对体外环境的感知是人类生存、交流和进化的基本能力。人体的味觉系统是信息感知的重要组成部分。有学者认为，苦味的感知是人类长期进化的一种防御机制，这意味其担负着保护人体免于摄入有毒物质的预警任务。  以下哪项最可能是上述学者论述的前提？',
   options: [

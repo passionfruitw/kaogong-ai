@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001016,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2022国考副省级',
   question: '16、（单选题）关于常见气体的工业制备方法，下列说法错误的是：',
   options: [

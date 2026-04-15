@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221001057,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '中心理解',
   examSet: '2022国考副省级',
   passageId: 20221001056,
   question: '57、（单选题）关于弓形虫感染，下列说法与原文相符的是:',

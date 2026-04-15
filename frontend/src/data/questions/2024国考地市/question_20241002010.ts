@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20241002010,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2024国考地市',
   question: '10、根据《中华人民共和国反间谍法》，下列说法或做法错误的是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231001006,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2023国考副省级',
   question: '6、2021年6月26日，中共中央发布《中国共产党党徽党旗条例》。根据该条例，下列表述不正确的是：',
   options: [

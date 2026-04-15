@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002108,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '翻译推理',
   examSet: '2019国考地市',
   passageId: 20191002106,
   question: '108、如果有两名选手答题总数相同，则可以得出：',

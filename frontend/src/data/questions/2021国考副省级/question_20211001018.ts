@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211001018,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '科技地理',
   examSet: '2021国考副省级',
   question: '18、DNA 双螺旋结构的发现极大地促进了人们对遗传的研究和理解。下列哪项技术须以该发现为基础?',
   options: [

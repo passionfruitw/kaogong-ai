@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003030,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2022国考行政执法',
   question: '30、（单选题）透光摄影、多光谱成像、三维病害模型……这些听起来更像是医疗或化工业的技术，如今在文物修复圈成为 的“神器”。正是这些现代科技手段对文物的“问诊”与“体检”，弥补了用肉眼无法看到、用手无法摸到“病情”的缺陷，从而使修复人员可以“ ” 。  依次填入画横线部分最恰当的一项是：',
   options: [

@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002011,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2019国考地市',
   question: '11、垄断协议分为横向垄断协议和纵向垄断协议。下列哪一垄断协议与其他三项不同？',
   options: [

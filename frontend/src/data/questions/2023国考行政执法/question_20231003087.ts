@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231003087,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2023国考行政执法',
   question: '87、负性偏向是指负性信息比其他信息得到优先的注意和加工，这是人类在先天遗传和后天经验基础上存在的一种普遍性认知倾向，即给予负性事物更大的权重，并在注意、记忆、情绪、决策等方面遵循“坏比好重要”的心理原则。  根据上述定义，下列没有体现负性偏向的是：',
   options: [

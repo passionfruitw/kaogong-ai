@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20211002081,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '定义判断',
   examSet: '2021国考地市',
   question: '81、析数是指在一定的语境中，利用数学上相加或相乘等关系，把一个数有目的地进行拆分的一种修辞手法。根据上述定义，下列没有使用析数的是：',
   options: [

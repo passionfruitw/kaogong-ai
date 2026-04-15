@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '经济',
   examSet: '2022国考行政执法',
   question: '9、（单选题）《中华人民共和国数据安全法》自2021年9月1日起施行。依据该法，下列说法错误的是:',
   options: [

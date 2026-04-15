@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002039,
   module: '言语理解',
-  knowledgePoint: '言语理解',
+  knowledgePoint: '逻辑填空',
   examSet: '2022国考地市',
   question: '39、长期以来，由于政府同社会智库之间的智库成果报送渠道不畅，从而导致智库成果“体内循环多、成果转化少”等问题。为此，要给社会智库与官方智库 的待遇，建立畅通的智库成果快速报送渠道， _、广谋良策，充分发挥各级各类智库的“ _”作用。  依次填入画横线部分最恰当的一项是:',
   options: [

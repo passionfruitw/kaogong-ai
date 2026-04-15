@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20231002014,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '历史人文',
   examSet: '2023国考地市',
   question: '14、“亲人送水来解渴，军民鱼水一家人。横断山，路难行。……乌江天险重飞渡，兵临贵阳逼昆明。敌人弃甲丢烟枪，我军乘胜赶路程。调虎离山袭金沙……”这是歌曲《四渡赤水出奇兵》中的一段歌词，下列与之相关的说法正确的是：',
   options: [

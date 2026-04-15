@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20191002009,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '法律',
   examSet: '2019国考地市',
   question: '9、关于我国诉讼程序中的鉴定，下列说法错误的是：',
   options: [

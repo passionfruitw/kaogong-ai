@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003095,
   module: '判断推理',
-  knowledgePoint: '判断推理',
+  knowledgePoint: '分析推理',
   examSet: '2022国考行政执法',
   question: '95、（单选题）青铜器物∶商朝礼器∶文化遗产',
   options: [

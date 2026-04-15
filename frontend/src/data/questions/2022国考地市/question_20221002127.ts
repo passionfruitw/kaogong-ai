@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221002127,
   module: '资料分析',
-  knowledgePoint: '资料分析',
+  knowledgePoint: '比重',
   examSet: '2022国考地市',
   passageId: 20221002126,
   question: '127、2020年，中石化供气量占C市天然气用量的比重比上年：',

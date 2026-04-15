@@ -3,7 +3,7 @@ import type { Question } from '../../types'
 const question: Question = {
   id: 20221003004,
   module: '常识判断',
-  knowledgePoint: '常识判断',
+  knowledgePoint: '政治',
   examSet: '2022国考行政执法',
   question: '4、（单选题）关于中国共产党成立百年的宝贵经验，下列说法不准确的是：',
   options: [
