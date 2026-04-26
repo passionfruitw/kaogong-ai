@@ -9,9 +9,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # API配置
-API_KEY = os.getenv("CLAUDE_API_KEY", os.getenv("SILICONFLOW_API_KEY", ""))
-BASE_URL = os.getenv("CLAUDE_BASE_URL", os.getenv("SILICONFLOW_BASE_URL", "https://api.siliconflow.cn"))
-DEFAULT_MODEL = os.getenv("CLAUDE_MODEL", os.getenv("SILICONFLOW_MODEL", "deepseek-ai/DeepSeek-V3"))
+API_KEY = os.getenv(
+    "DEEPSEEK_API_KEY",
+    os.getenv("CLAUDE_API_KEY", os.getenv("SILICONFLOW_API_KEY", ""))
+)
+BASE_URL = os.getenv(
+    "DEEPSEEK_BASE_URL",
+    os.getenv("CLAUDE_BASE_URL", os.getenv("SILICONFLOW_BASE_URL", "https://api.deepseek.com"))
+)
+DEFAULT_MODEL = os.getenv(
+    "DEEPSEEK_MODEL",
+    os.getenv("CLAUDE_MODEL", os.getenv("SILICONFLOW_MODEL", "deepseek-v4-flash"))
+)
+CHAT_COMPLETIONS_PATH = os.getenv(
+    "DEEPSEEK_CHAT_COMPLETIONS_PATH",
+    "/chat/completions" if os.getenv("DEEPSEEK_API_KEY") else "/v1/chat/completions"
+)
 
 # 日志目录
 LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "sessions")
@@ -42,7 +55,7 @@ class LLMService:
 
         async with httpx.AsyncClient(timeout=120.0) as client:
             response = await client.post(
-                f"{self.base_url}/v1/chat/completions",
+                f"{self.base_url.rstrip('/')}{CHAT_COMPLETIONS_PATH}",
                 headers=headers,
                 json=payload
             )
@@ -115,9 +128,9 @@ class LLMService:
 {''.join([f"\n{chr(65+i)}. {opt}" for i, opt in enumerate(question_data.get('options') or [])])}
 知识点：{knowledge_point}
 
-请用一句话询问学生对这个知识点的初步理解或解题思路。不要给任何提示，不要提及答案，不要说"正确"或"错误"。
+请用一句话询问学生的整体解题思路。不要给任何提示，不要提及答案，不要说"正确"或"错误"。
 
-示例风格：「这道题考查的是{knowledge_point}，你能先说说你的解题思路吗？」
+示例风格：「这道题考查的是{knowledge_point}，你能先说说整体解题思路吗？」
 
 只输出这一句提问，不要其他内容。"""
 
@@ -135,11 +148,16 @@ class LLMService:
 
 你必须遵守以下规则：
 1. 刚开始绝对不能说出正确答案是哪个选项
-2. 如果学生思路有误，必须明确指出"这个思路有问题"，然后用反问引导他重新思考，不能含糊其辞或假装认可
+2. 如果学生思路有误，先承接其中合理的部分，再温和纠偏；只有方向完全错误时才说"这个思路有问题"，避免生硬否定
 3. 如果学生已经得出正确答案或正确思路，立即给予肯定并结束对话，不要继续追问细节或延伸问题
-4. 整个对话尽量控制在5轮以内，不要反复纠缠同一个细节
-5. 每次回复只问一个问题，控制在80字以内
-6. 用自然对话语气，不要列条目
+4. 教学重点是帮助学生理解完整解题路线：已知条件如何转化、关键关系如何建立、最后如何计算或判断
+5. 对学生已经掌握的基础知识点不要反复追问，例如直角三角形三边关系、简单比例、单位换算等；除非这些点明显影响主线
+6. 遇到基础步骤时，可以直接简短承接，再把问题推进到下一步，例如"这个判断可以，下一步要用它求什么？"
+7. 对排列组合、概率、行程等题，若后续情况只是对称或同型重复计算，可以直接点明"另一种同理/对称"，不要让学生机械重复同一类计算
+8. 学生给出局部数量或中间式时，先判断它对应哪一种情况，再提示是否需要乘以分布数、对称情况或补最后的概率/比例闭环
+9. 整个对话尽量控制在5轮以内，不要反复纠缠同一个细节
+10. 每次回复只围绕一个推进点，控制在100字以内
+11. 用自然对话语气，不要列条目
 
 请直接给出你的回复。"""
 

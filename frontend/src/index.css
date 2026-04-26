@@ -1167,6 +1167,98 @@ h1, h2, h3, h4 {
   border-bottom-right-radius: 3px;
 }
 
+.thinking-message {
+  align-items: center;
+}
+
+.thinking-message > .message-avatar:not(.mentor-thinking-avatar) {
+  display: none;
+}
+
+.mentor-thinking-avatar {
+  position: relative;
+  overflow: visible;
+  background: linear-gradient(135deg, rgba(26,107,74,0.12), rgba(74,144,226,0.12));
+  color: var(--primary-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.mentor-face {
+  position: relative;
+  z-index: 1;
+}
+
+.mentor-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(26,107,74,0.25);
+  animation: mentorPulse 1.8s ease-out infinite;
+}
+
+.thinking-message .message-content {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--text-secondary);
+}
+
+.thinking-message .typing {
+  display: none;
+}
+
+.thinking-message .message-content::before {
+  content: "正在整理思路";
+  font-weight: 500;
+}
+
+.thinking-message .message-content::after {
+  content: "";
+  width: 30px;
+  height: 10px;
+  margin-left: 10px;
+  background:
+    radial-gradient(circle, var(--primary-color) 45%, transparent 48%) 0 50% / 8px 8px no-repeat,
+    radial-gradient(circle, var(--primary-color) 45%, transparent 48%) 11px 50% / 8px 8px no-repeat,
+    radial-gradient(circle, var(--primary-color) 45%, transparent 48%) 22px 50% / 8px 8px no-repeat;
+  animation: thinkingDots 1.15s ease-in-out infinite;
+  opacity: 0.72;
+}
+
+@keyframes mentorPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.65;
+  }
+  70% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+
+@keyframes thinkingDots {
+  0%, 100% {
+    transform: translateY(0);
+    filter: opacity(0.5);
+  }
+  45% {
+    transform: translateY(-2px);
+    filter: opacity(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mentor-pulse,
+  .thinking-message .message-content::after {
+    animation: none;
+  }
+}
+
 .input-area {
   display: flex;
   flex-direction: column;

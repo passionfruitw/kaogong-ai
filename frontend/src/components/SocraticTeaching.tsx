@@ -71,7 +71,7 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
     }
-  }, [messages])
+  }, [messages, loading])
 
   // 组件卸载时若对话未保存，自动触发 summary
   useEffect(() => {
@@ -370,8 +370,11 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
               </div>
             ))}
             {loading && (
-              <div className="chat-message ai">
-                <div className="message-avatar">🎓</div>
+              <div className="chat-message ai thinking-message" aria-live="polite" aria-label="AI is thinking">
+                <div className="message-avatar mentor-thinking-avatar" aria-hidden="true">
+                  <span className="mentor-face">AI</span>
+                  <span className="mentor-pulse" />
+                </div>
                 <div className="message-content">
                   <p className="typing">AI正在思考...</p>
                 </div>
