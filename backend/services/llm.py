@@ -26,6 +26,16 @@ CHAT_COMPLETIONS_PATH = os.getenv(
     "/chat/completions" if os.getenv("DEEPSEEK_API_KEY") else "/v1/chat/completions"
 )
 
+
+def build_chat_completions_url(base_url: str, path: str) -> str:
+    base = base_url.rstrip("/")
+    suffix = path if path.startswith("/") else f"/{path}"
+
+    if base.endswith("/v1") and suffix.startswith("/v1/"):
+        suffix = suffix[3:]
+
+    return f"{base}{suffix}"
+
 # 日志目录
 LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "sessions")
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -55,7 +65,7 @@ class LLMService:
 
         async with httpx.AsyncClient(timeout=120.0) as client:
             response = await client.post(
-                f"{self.base_url.rstrip('/')}{CHAT_COMPLETIONS_PATH}",
+                build_chat_completions_url(self.base_url, CHAT_COMPLETIONS_PATH),
                 headers=headers,
                 json=payload
             )
