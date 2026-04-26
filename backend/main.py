@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from routers import ai
+from routers import ai, auth
 
 # 加载环境变量
 load_dotenv()
@@ -29,6 +29,7 @@ app.add_middleware(
 
 # 注册路由
 app.include_router(ai.router)
+app.include_router(auth.router)
 
 
 @app.get("/")

@@ -7,6 +7,7 @@ import SocraticTeaching from './components/SocraticTeaching'
 import StrengtheningTraining from './components/StrengtheningTraining'
 import Statistics from './components/Statistics'
 import ErrorBoundary from './components/ErrorBoundary'
+import LoginGate from './components/LoginGate'
 import { useAppStore } from './stores/useAppStore'
 import { getAllExamSets, getExamSetStats, questions, passages } from './data/index'
 import { Question } from './data/index'
@@ -230,9 +231,15 @@ function App() {
   const setPracticeQuestionId = useAppStore(s => s.setPracticeQuestionId)
 
   return (
+    <LoginGate>
+      {({ username, onLogout }) => (
     <div className="app">
       <div className="container">
         <div className="header">
+          <div className="user-bar">
+            <span>{username}</span>
+            <button type="button" onClick={onLogout}>退出</button>
+          </div>
           <h1>超级考公 2.0</h1>
           <p>基于苏格拉底式教学法的智能备考平台</p>
         </div>
@@ -336,6 +343,8 @@ function App() {
         </ErrorBoundary>
       </div>
     </div>
+      )}
+    </LoginGate>
   )
 }
 

@@ -8,6 +8,34 @@ const api = axios.create({
   timeout: 60000,
 })
 
+const AUTH_TOKEN_KEY = 'kaogong_auth_token'
+const AUTH_USER_KEY = 'kaogong_auth_user'
+
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem(AUTH_TOKEN_KEY)
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
+
+export function getStoredAuth() {
+  return {
+    token: localStorage.getItem(AUTH_TOKEN_KEY) || '',
+    username: localStorage.getItem(AUTH_USER_KEY) || '',
+  }
+}
+
+export function storeAuth(token: string, username: string) {
+  localStorage.setItem(AUTH_TOKEN_KEY, token)
+  localStorage.setItem(AUTH_USER_KEY, username)
+}
+
+export function clearAuth() {
+  localStorage.removeItem(AUTH_TOKEN_KEY)
+  localStorage.removeItem(AUTH_USER_KEY)
+}
+
 export interface QuestionData {
   question: string
   options?: string[]
@@ -38,6 +66,11 @@ export interface SessionSummaryResponse {
     module: string
     mastery_level: string
   }>
+}
+
+export interface LoginResponse {
+  token: string
+  username: string
 }
 
 // Helper to extract .data from axios response
@@ -76,6 +109,14 @@ export const aiApi = {
     total_done: number
     accuracy_rate: number
   }): Promise<AIResponse> => unwrap(api.post('/ai/study-plan', data)),
+}
+
+export const authApi = {
+  login: (username: string, password: string): Promise<LoginResponse> =>
+    unwrap(api.post('/auth/login', { username, password })),
+
+  me: (): Promise<{ username: string }> =>
+    unwrap(api.get('/auth/me')),
 }
 
 export default api

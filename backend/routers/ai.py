@@ -1,5 +1,6 @@
 """AI功能路由"""
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from deps import require_auth
 from models.schemas import (
     AIAnalysisRequest,
     AIResponse,
@@ -13,7 +14,7 @@ router = APIRouter(prefix="/api/ai", tags=["AI功能"])
 
 
 @router.post("/analyze", response_model=AIResponse)
-async def analyze_question(request: AIAnalysisRequest):
+async def analyze_question(request: AIAnalysisRequest, _username: str = Depends(require_auth)):
     """AI错题解析"""
     try:
         question_data = request.model_dump()
@@ -29,7 +30,7 @@ async def analyze_question(request: AIAnalysisRequest):
 
 
 @router.post("/variants", response_model=AIResponse)
-async def generate_variant_questions(request: VariantQuestionsRequest):
+async def generate_variant_questions(request: VariantQuestionsRequest, _username: str = Depends(require_auth)):
     """举一反三 - 生成变式题"""
     try:
         question_data = request.model_dump()
@@ -44,7 +45,7 @@ async def generate_variant_questions(request: VariantQuestionsRequest):
 
 
 @router.post("/socratic/teach", response_model=AIResponse)
-async def socratic_teaching(request: SocraticTeachingRequest):
+async def socratic_teaching(request: SocraticTeachingRequest, _username: str = Depends(require_auth)):
     """苏格拉底式AI教学"""
     try:
         question_data = request.model_dump()
@@ -78,7 +79,7 @@ async def health_check():
 
 
 @router.post("/chat", response_model=AIResponse)
-async def chat(request: dict):
+async def chat(request: dict, _username: str = Depends(require_auth)):
     """通用聊天接口"""
     try:
         prompt = request.get("prompt", "")
@@ -95,7 +96,7 @@ async def chat(request: dict):
 
 
 @router.get("/sessions/summary")
-async def sessions_summary():
+async def sessions_summary(_username: str = Depends(require_auth)):
     """获取苏格拉底教学会话汇总"""
     try:
         return get_sessions_summary()
@@ -104,7 +105,7 @@ async def sessions_summary():
 
 
 @router.post("/study-plan", response_model=AIResponse)
-async def generate_study_plan(request: StudyPlanRequest):
+async def generate_study_plan(request: StudyPlanRequest, _username: str = Depends(require_auth)):
     """AI生成个性化学习方案"""
     try:
         content = await llm_service.generate_study_plan(request.model_dump())
