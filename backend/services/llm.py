@@ -8,6 +8,22 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+def _env(name: str) -> str:
+    return os.getenv(name, "").strip()
+
+
+def get_default_model() -> str:
+    if _env("DEEPSEEK_MODEL"):
+        return _env("DEEPSEEK_MODEL")
+    if _env("CLAUDE_MODEL"):
+        return _env("CLAUDE_MODEL")
+    if _env("SILICONFLOW_MODEL"):
+        return _env("SILICONFLOW_MODEL")
+    if _env("DEEPSEEK_API_KEY"):
+        return "deepseek-chat"
+    return "deepseek-ai/DeepSeek-V3"
+
+
 # API配置
 API_KEY = os.getenv(
     "DEEPSEEK_API_KEY",
@@ -17,10 +33,7 @@ BASE_URL = os.getenv(
     "DEEPSEEK_BASE_URL",
     os.getenv("CLAUDE_BASE_URL", os.getenv("SILICONFLOW_BASE_URL", "https://api.deepseek.com"))
 )
-DEFAULT_MODEL = os.getenv(
-    "DEEPSEEK_MODEL",
-    os.getenv("CLAUDE_MODEL", os.getenv("SILICONFLOW_MODEL", "deepseek-v4-flash"))
-)
+DEFAULT_MODEL = get_default_model()
 CHAT_COMPLETIONS_PATH = os.getenv(
     "DEEPSEEK_CHAT_COMPLETIONS_PATH",
     "/chat/completions" if os.getenv("DEEPSEEK_API_KEY") else "/v1/chat/completions"
