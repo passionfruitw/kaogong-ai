@@ -1,4 +1,4 @@
-"""LLM服务 - 硅基流动API集成"""
+"""LLM service - DeepSeek API integration."""
 import os
 import json
 import httpx
@@ -13,40 +13,19 @@ def _env(name: str) -> str:
 
 
 def get_default_model() -> str:
-    if _env("DEEPSEEK_MODEL"):
-        return _env("DEEPSEEK_MODEL")
-    if _env("CLAUDE_MODEL"):
-        return _env("CLAUDE_MODEL")
-    if _env("SILICONFLOW_MODEL"):
-        return _env("SILICONFLOW_MODEL")
-    if _env("DEEPSEEK_API_KEY"):
-        return "deepseek-chat"
-    return "deepseek-ai/DeepSeek-V3"
+    return _env("DEEPSEEK_MODEL") or "deepseek-chat"
 
 
 # API配置
-API_KEY = os.getenv(
-    "DEEPSEEK_API_KEY",
-    os.getenv("CLAUDE_API_KEY", os.getenv("SILICONFLOW_API_KEY", ""))
-)
-BASE_URL = os.getenv(
-    "DEEPSEEK_BASE_URL",
-    os.getenv("CLAUDE_BASE_URL", os.getenv("SILICONFLOW_BASE_URL", "https://api.deepseek.com"))
-)
+API_KEY = _env("DEEPSEEK_API_KEY")
+BASE_URL = _env("DEEPSEEK_BASE_URL") or "https://api.deepseek.com"
 DEFAULT_MODEL = get_default_model()
-CHAT_COMPLETIONS_PATH = os.getenv(
-    "DEEPSEEK_CHAT_COMPLETIONS_PATH",
-    "/chat/completions" if os.getenv("DEEPSEEK_API_KEY") else "/v1/chat/completions"
-)
+CHAT_COMPLETIONS_PATH = _env("DEEPSEEK_CHAT_COMPLETIONS_PATH") or "/chat/completions"
 
 
 def build_chat_completions_url(base_url: str, path: str) -> str:
     base = base_url.rstrip("/")
     suffix = path if path.startswith("/") else f"/{path}"
-
-    if base.endswith("/v1") and suffix.startswith("/v1/"):
-        suffix = suffix[3:]
-
     return f"{base}{suffix}"
 
 # 日志目录
@@ -62,15 +41,18 @@ class LLMService:
         self.model = model
         self.base_url = BASE_URL
 
-    async def _call_api(self, messages: List[Dict], temperature: float = 0.7) -> str:
+    async def _call_api(self, messages: List[Dict], temperature: float = 0.7, model: str = None) -> str:
         """调用LLM API（OpenAI兼容格式）"""
+        if not self.api_key:
+            raise ValueError("DEEPSEEK_API_KEY is not configured")
+
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
 
         payload = {
-            "model": self.model,
+            "model": model or self.model,
             "messages": messages,
             "temperature": temperature,
             "max_tokens": 8192
@@ -233,7 +215,7 @@ class LLMService:
     async def chat(self, prompt: str, model: str = None) -> str:
         """通用聊天接口"""
         messages = [{"role": "user", "content": prompt}]
-        return await self._call_api(messages, temperature=0.7)
+        return await self._call_api(messages, temperature=0.7, model=model)
 
     async def generate_study_plan(self, data: dict) -> str:
         """AI生成个性化学习方案"""

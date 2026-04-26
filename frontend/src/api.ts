@@ -60,7 +60,7 @@ export const aiApi = {
 
   // 通用聊天（用于强化训练生成题目）
   chat: (prompt: string): Promise<AIResponse> =>
-    unwrap(api.post('/ai/chat', { prompt, model: 'Qwen/Qwen2.5-7B-Instruct' })),
+    unwrap(api.post('/ai/chat', { prompt, model: 'deepseek-chat' })),
 
   // 健康检查
   health: () => api.get('/ai/health'),

@@ -82,7 +82,7 @@ async def chat(request: dict):
     """通用聊天接口"""
     try:
         prompt = request.get("prompt", "")
-        model = request.get("model", "Qwen/Qwen2.5-7B-Instruct")
+        model = request.get("model", "deepseek-chat")
 
         content = await llm_service.chat(prompt, model)
         return AIResponse(
