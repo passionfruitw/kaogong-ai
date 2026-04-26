@@ -60,7 +60,7 @@ export const aiApi = {
 
   // 通用聊天（用于强化训练生成题目）
   chat: (prompt: string): Promise<AIResponse> =>
-    unwrap(api.post('/ai/chat', { prompt, model: 'deepseek-chat' })),
+    unwrap(api.post('/ai/chat', { prompt, model: 'deepseek-v4-flash' })),
 
   // 健康检查
   health: () => api.get('/ai/health'),

@@ -13,7 +13,7 @@ def _env(name: str) -> str:
 
 
 def get_default_model() -> str:
-    return _env("DEEPSEEK_MODEL") or "deepseek-chat"
+    return _env("DEEPSEEK_MODEL") or "deepseek-v4-flash"
 
 
 # API配置
