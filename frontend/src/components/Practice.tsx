@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
+import { Info } from 'lucide-react'
 import { questions, Question, passages } from '../data/index'
 import QuestionCard from './QuestionCard'
 import { useAppStore, VariantQuestion } from '../stores/useAppStore'
@@ -552,7 +553,7 @@ export default function Practice() {
             }}
             title="AI智能推荐：优先推荐错题和未做题，高效备考"
           >
-            智能刷题 ℹ️
+            智能刷题 <Info className="mode-icon" aria-hidden="true" />
           </button>
         </div>
       )}

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
+import { GraduationCap, UserRound } from 'lucide-react'
 import { aiApi } from '../api'
 import { questions, getAllModules, Question } from '../data/index'
 
@@ -521,7 +522,9 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
             {messages.map((msg, i) => (
               <div key={i} className={`chat-message ${msg.role}`}>
                 <div className="message-avatar">
-                  {msg.role === 'ai' ? '🎓' : '👤'}
+                  {msg.role === 'ai'
+                    ? <GraduationCap aria-hidden="true" />
+                    : <UserRound aria-hidden="true" />}
                 </div>
                 <div className="message-content">
                   <p style={{ whiteSpace: 'pre-wrap' }}>{msg.content}</p>

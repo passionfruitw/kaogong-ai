@@ -1,5 +1,15 @@
 import './App.css'
 import { useState } from 'react'
+import {
+  Bot,
+  BookOpen,
+  ChartColumn,
+  CircleX,
+  ClipboardList,
+  Dumbbell,
+  GraduationCap,
+  PencilLine,
+} from 'lucide-react'
 import QuestionBank from './components/QuestionBank'
 import Practice from './components/Practice'
 import WrongQuestions from './components/WrongQuestions'
@@ -249,7 +259,7 @@ function App() {
             className={`nav-btn ${currentView === 'bank' ? 'active' : ''}`}
             onClick={() => setCurrentView('bank')}
           >
-            <span className="nav-icon">📚</span>
+            <span className="nav-icon"><BookOpen aria-hidden="true" /></span>
             题库
           </button>
           <button
@@ -260,14 +270,14 @@ function App() {
               setCurrentView('practice')
             }}
           >
-            <span className="nav-icon">✏️</span>
+            <span className="nav-icon"><PencilLine aria-hidden="true" /></span>
             刷题
           </button>
           <button
             className={`nav-btn ${currentView === 'wrong' ? 'active' : ''}`}
             onClick={() => setCurrentView('wrong')}
           >
-            <span className="nav-icon">❌</span>
+            <span className="nav-icon"><CircleX aria-hidden="true" /></span>
             错题集
             {wrongQuestions.length > 0 && (
               <span className="badge">{wrongQuestions.length}</span>
@@ -277,21 +287,21 @@ function App() {
             className={`nav-btn ${currentView === 'ai-help' ? 'active' : ''}`}
             onClick={() => setCurrentView('ai-help')}
           >
-            <span className="nav-icon">🤖</span>
+            <span className="nav-icon"><Bot aria-hidden="true" /></span>
             AI辅助
           </button>
           <button
             className={`nav-btn ${currentView === 'stats' ? 'active' : ''}`}
             onClick={() => setCurrentView('stats')}
           >
-            <span className="nav-icon">📊</span>
+            <span className="nav-icon"><ChartColumn aria-hidden="true" /></span>
             统计
           </button>
           <button
             className={`nav-btn ${currentView === 'exam-sets' ? 'active' : ''}`}
             onClick={() => setCurrentView('exam-sets')}
           >
-            <span className="nav-icon">📝</span>
+            <span className="nav-icon"><ClipboardList aria-hidden="true" /></span>
             真题套卷
           </button>
         </nav>
@@ -310,14 +320,14 @@ function App() {
                   className={`ai-sub-btn ${aiSubView === 'socratic' ? 'active' : ''}`}
                   onClick={() => setAiSubView('socratic')}
                 >
-                  <span className="sub-icon">🎓</span>
+                  <span className="sub-icon"><GraduationCap aria-hidden="true" /></span>
                   苏格拉底教学
                 </button>
                 <button
                   className={`ai-sub-btn ${aiSubView === 'training' ? 'active' : ''}`}
                   onClick={() => setAiSubView('training')}
                 >
-                  <span className="sub-icon">💪</span>
+                  <span className="sub-icon"><Dumbbell aria-hidden="true" /></span>
                   强化训练
                 </button>
               </div>

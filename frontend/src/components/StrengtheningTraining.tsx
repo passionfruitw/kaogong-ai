@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { ChartColumn } from 'lucide-react'
 import { aiApi } from '../api'
 import { useAppStore } from '../stores/useAppStore'
 
@@ -213,7 +214,7 @@ export default function StrengtheningTraining() {
             </>
           ) : (
             <div className="empty-state">
-              <div className="empty-icon">📊</div>
+              <div className="empty-icon"><ChartColumn aria-hidden="true" /></div>
               <h3>暂无薄弱点数据</h3>
               <p>请先完成一些练习，积累错题后，系统会自动分析您的薄弱知识点</p>
             </div>
