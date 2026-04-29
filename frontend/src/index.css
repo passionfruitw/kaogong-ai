@@ -1416,6 +1416,10 @@ h1, h2, h3, h4 {
   gap: 10px;
 }
 
+.voice-input-field {
+  position: relative;
+}
+
 .input-area textarea {
   width: 100%;
   padding: 10px 13px;
@@ -1427,10 +1431,120 @@ h1, h2, h3, h4 {
   transition: border-color 0.2s;
 }
 
+.voice-input-field textarea {
+  min-height: 96px;
+  padding-right: 66px;
+  padding-bottom: 56px;
+}
+
+.voice-input-field.listening textarea {
+  border-color: var(--primary-light);
+  background: rgba(59,130,246,0.04);
+}
+
 .input-area textarea:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(26,107,74,0.08);
+}
+
+.voice-input-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  background: var(--bg-white);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.voice-input-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.voice-input-btn:hover:not(:disabled) {
+  color: var(--primary-color);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.voice-input-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.24), var(--shadow-sm);
+}
+
+.voice-input-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+.voice-input-btn.listening {
+  color: white;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.14), var(--shadow-md);
+}
+
+.voice-input-btn.listening::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(59,130,246,0.35);
+  border-radius: var(--radius-full);
+  animation: voicePulse 1.5s ease-out infinite;
+}
+
+.voice-input-status {
+  min-height: 20px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.voice-input-status.active {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.voice-input-status.success {
+  color: var(--success-dark);
+}
+
+.voice-input-status.error {
+  color: var(--error-dark);
+}
+
+@keyframes voicePulse {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.75;
+  }
+  70% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-input-btn,
+  .voice-input-btn.listening::after {
+    animation: none;
+    transition: none;
+  }
 }
 
 .summary-actions {

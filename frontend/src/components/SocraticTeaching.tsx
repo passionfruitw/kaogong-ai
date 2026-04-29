@@ -18,6 +18,27 @@ interface Message {
   content: string
 }
 
+const getSpeechRecognitionConstructor = () => {
+  if (typeof window === 'undefined') return null
+  return window.SpeechRecognition || window.webkitSpeechRecognition || null
+}
+
+const getSpeechErrorMessage = (error: SpeechRecognitionErrorCode) => {
+  switch (error) {
+    case 'not-allowed':
+    case 'service-not-allowed':
+      return '麦克风权限被拒绝，请允许浏览器访问麦克风后重试。'
+    case 'audio-capture':
+      return '没有检测到可用麦克风，请检查设备。'
+    case 'no-speech':
+      return '没有识别到声音，请靠近麦克风再试一次。'
+    case 'network':
+      return '语音识别服务连接失败，请稍后重试。'
+    default:
+      return '语音识别失败，请手动输入或稍后重试。'
+  }
+}
+
 export default function SocraticTeaching({ initialQuestion, onClearQuestion }: SocraticTeachingProps) {
   const [question, setQuestion] = useState('')
   const [options, setOptions] = useState<string[]>(['', '', '', ''])
@@ -51,9 +72,17 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
   const [error, setError] = useState('')
   const [conversationEnded, setConversationEnded] = useState(false)
   const [_summary, setSummary] = useState('')
+  const [speechSupported, setSpeechSupported] = useState(() => Boolean(getSpeechRecognitionConstructor()))
+  const [isListening, setIsListening] = useState(false)
+  const [speechNotice, setSpeechNotice] = useState('')
+  const [speechStatus, setSpeechStatus] = useState<'idle' | 'active' | 'success' | 'error'>('idle')
 
   const [started, setStarted] = useState(false)
   const chatContainerRef = useRef<HTMLDivElement>(null)
+  const recognitionRef = useRef<SpeechRecognition | null>(null)
+  const speechInputBaseRef = useRef('')
+  const speechHadResultRef = useRef(false)
+  const speechHadErrorRef = useRef(false)
 
   const modules = getAllModules()
 
@@ -72,6 +101,21 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
     }
   }, [messages, loading])
+
+  useEffect(() => {
+    setSpeechSupported(Boolean(getSpeechRecognitionConstructor()))
+
+    return () => {
+      const recognition = recognitionRef.current
+      if (!recognition) return
+
+      recognition.onresult = null
+      recognition.onerror = null
+      recognition.onend = null
+      recognition.abort()
+      recognitionRef.current = null
+    }
+  }, [])
 
   // 组件卸载时若对话未保存，自动触发 summary
   useEffect(() => {
@@ -99,6 +143,106 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
     setKnowledgePoint(q.knowledgePoint)
     setModule(q.module)
     setShowPicker(false)
+  }
+
+  const stopSpeechRecognition = () => {
+    const recognition = recognitionRef.current
+    if (!recognition) {
+      setIsListening(false)
+      return
+    }
+
+    try {
+      recognition.stop()
+    } catch {
+      recognition.abort()
+      recognitionRef.current = null
+    }
+    setIsListening(false)
+  }
+
+  const handleToggleVoiceInput = () => {
+    if (loading) return
+
+    if (isListening) {
+      stopSpeechRecognition()
+      return
+    }
+
+    const SpeechRecognitionConstructor = getSpeechRecognitionConstructor()
+    if (!SpeechRecognitionConstructor) {
+      setSpeechSupported(false)
+      setSpeechStatus('error')
+      setSpeechNotice('当前浏览器不支持语音输入，请使用 Chrome/Edge 或手动输入。')
+      return
+    }
+
+    const recognition = new SpeechRecognitionConstructor()
+    recognition.lang = 'zh-CN'
+    recognition.continuous = true
+    recognition.interimResults = true
+    recognition.maxAlternatives = 1
+
+    speechInputBaseRef.current = userInput.trimEnd()
+    speechHadResultRef.current = false
+    speechHadErrorRef.current = false
+
+    recognition.onstart = () => {
+      setIsListening(true)
+      setSpeechStatus('active')
+      setSpeechNotice('正在听写，点击麦克风可停止。')
+    }
+
+    recognition.onresult = (event) => {
+      let transcript = ''
+
+      for (let i = 0; i < event.results.length; i += 1) {
+        transcript += event.results[i][0]?.transcript || ''
+      }
+
+      if (transcript.trim()) {
+        speechHadResultRef.current = true
+      }
+
+      const baseText = speechInputBaseRef.current
+      const nextInput = [baseText, transcript.trim()].filter(Boolean).join(baseText ? '\n' : '')
+      setUserInput(nextInput)
+    }
+
+    recognition.onerror = (event) => {
+      speechHadErrorRef.current = true
+      setSpeechStatus('error')
+      setSpeechNotice(getSpeechErrorMessage(event.error))
+      setIsListening(false)
+    }
+
+    recognition.onend = () => {
+      setIsListening(false)
+      if (recognitionRef.current === recognition) {
+        recognitionRef.current = null
+      }
+
+      if (speechHadErrorRef.current) return
+
+      if (speechHadResultRef.current) {
+        setSpeechStatus('success')
+        setSpeechNotice('语音输入已停止，可继续编辑后发送。')
+      } else {
+        setSpeechStatus('error')
+        setSpeechNotice('没有识别到声音，请靠近麦克风再试一次。')
+      }
+    }
+
+    recognitionRef.current = recognition
+
+    try {
+      recognition.start()
+    } catch {
+      recognitionRef.current = null
+      setIsListening(false)
+      setSpeechStatus('error')
+      setSpeechNotice('语音输入启动失败，请稍后再试。')
+    }
   }
 
   // 开始学习时，AI先主动提问
@@ -137,7 +281,7 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
   }
 
   const handleSendMessage = async () => {
-    if (!userInput.trim() || loading || conversationEnded) return
+    if (!userInput.trim() || loading || conversationEnded || isListening) return
 
     const userMessage = userInput.trim()
     setLoading(true)
@@ -175,6 +319,7 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
   const handleEndConversation = async () => {
     if (loading || messages.length === 0) return
 
+    stopSpeechRecognition()
     setLoading(true)
     setError('')
 
@@ -208,6 +353,7 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
   }
 
   const handleRestart = async () => {
+    stopSpeechRecognition()
     setMessages([])
     setUserInput('')
     setError('')
@@ -239,6 +385,7 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
   }
 
   const handleNewQuestion = () => {
+    stopSpeechRecognition()
     setQuestion('')
     setOptions(['', '', '', ''])
     setCorrectAnswer('')
@@ -250,6 +397,8 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
     setError('')
     setConversationEnded(false)
     setSummary('')
+    setSpeechNotice('')
+    setSpeechStatus('idle')
     onClearQuestion?.()
   }
 
@@ -257,10 +406,20 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
-      if (conversationEnded) return
+      if (conversationEnded || isListening) return
       handleSendMessage()
     }
   }
+
+  const voiceButtonLabel = !speechSupported
+    ? '当前浏览器不支持语音输入'
+    : isListening
+      ? '停止语音输入'
+      : '开始语音输入'
+  const voiceStatusMessage = !speechSupported
+    ? '当前浏览器不支持语音输入，请使用 Chrome/Edge 或手动输入。'
+    : speechNotice
+  const voiceStatusClass = !speechSupported ? 'error' : speechStatus
 
   // 题目选择器界面
   if (showPicker) {
@@ -387,14 +546,36 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
               <div className="turn-indicator">
                 第 {messages.filter(m => m.role === 'user').length + 1} / 5 轮
               </div>
-              <textarea
-                value={userInput}
-                onChange={e => setUserInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="请输入你的回答... (按Enter发送, Shift+Enter换行)"
-                rows={3}
-                disabled={loading}
-              />
+              <div className={`voice-input-field ${isListening ? 'listening' : ''}`}>
+                <textarea
+                  value={userInput}
+                  onChange={e => setUserInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="请输入你的回答... (按Enter发送, Shift+Enter换行)"
+                  rows={3}
+                  disabled={loading}
+                  readOnly={isListening}
+                />
+                <button
+                  type="button"
+                  className={`voice-input-btn ${isListening ? 'listening' : ''}`}
+                  onClick={handleToggleVoiceInput}
+                  disabled={loading || !speechSupported}
+                  aria-label={voiceButtonLabel}
+                  aria-pressed={isListening}
+                  title={voiceButtonLabel}
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v5c0 1.66 1.34 3 3 3Z" />
+                    <path d="M17.3 11a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-1.7Z" />
+                  </svg>
+                </button>
+              </div>
+              {voiceStatusMessage && (
+                <p className={`voice-input-status ${voiceStatusClass}`} aria-live="polite">
+                  {voiceStatusMessage}
+                </p>
+              )}
               <div className="input-actions">
                 <button
                   className="btn btn-secondary"
@@ -406,7 +587,7 @@ export default function SocraticTeaching({ initialQuestion, onClearQuestion }: S
                 <button
                   className="btn btn-primary"
                   onClick={handleSendMessage}
-                  disabled={loading || !userInput.trim()}
+                  disabled={loading || isListening || !userInput.trim()}
                 >
                   {loading ? '发送中...' : '发送'}
                 </button>
