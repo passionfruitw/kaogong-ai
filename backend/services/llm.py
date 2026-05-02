@@ -2,6 +2,7 @@
 import os
 import json
 import re
+import asyncio
 import httpx
 from datetime import datetime
 from typing import List, Dict, Optional
@@ -23,6 +24,7 @@ BASE_URL = _env("DEEPSEEK_BASE_URL") or "https://api.deepseek.com"
 DEFAULT_MODEL = get_default_model()
 CHAT_COMPLETIONS_PATH = _env("DEEPSEEK_CHAT_COMPLETIONS_PATH") or "/chat/completions"
 OPTION_LABELS = ["A", "B", "C", "D"]
+RETRYABLE_STATUS_CODES = {408, 429, 500, 502, 503, 504}
 
 
 def build_chat_completions_url(base_url: str, path: str) -> str:
@@ -142,7 +144,14 @@ class LLMService:
         self.model = model
         self.base_url = BASE_URL
 
-    async def _call_api(self, messages: List[Dict], temperature: float = 0.7, model: str = None) -> str:
+    async def _call_api(
+        self,
+        messages: List[Dict],
+        temperature: float = 0.7,
+        model: str = None,
+        retries: int = 0,
+        timeout: float = 120.0
+    ) -> str:
         """调用LLM API（OpenAI兼容格式）"""
         if not self.api_key:
             raise ValueError("DEEPSEEK_API_KEY is not configured")
@@ -159,15 +168,33 @@ class LLMService:
             "max_tokens": 8192
         }
 
-        async with httpx.AsyncClient(timeout=120.0) as client:
-            response = await client.post(
-                build_chat_completions_url(self.base_url, CHAT_COMPLETIONS_PATH),
-                headers=headers,
-                json=payload
-            )
-            response.raise_for_status()
-            result = response.json()
-            return result["choices"][0]["message"]["content"]
+        last_error = None
+        attempts = max(1, retries + 1)
+
+        for attempt in range(attempts):
+            try:
+                async with httpx.AsyncClient(timeout=timeout) as client:
+                    response = await client.post(
+                        build_chat_completions_url(self.base_url, CHAT_COMPLETIONS_PATH),
+                        headers=headers,
+                        json=payload
+                    )
+                    response.raise_for_status()
+                    result = response.json()
+                    return result["choices"][0]["message"]["content"]
+            except httpx.HTTPStatusError as exc:
+                last_error = exc
+                status_code = exc.response.status_code
+                if status_code not in RETRYABLE_STATUS_CODES or attempt >= attempts - 1:
+                    raise
+            except (httpx.TimeoutException, httpx.TransportError) as exc:
+                last_error = exc
+                if attempt >= attempts - 1:
+                    raise
+
+            await asyncio.sleep(min(1.5 * (attempt + 1), 4.0))
+
+        raise RuntimeError(f"LLM request failed after retries: {last_error}")
 
     async def analyze_question(self, question_data: dict) -> str:
         """AI错题解析"""
@@ -227,7 +254,7 @@ class LLMService:
 ]"""
 
         messages = [{"role": "user", "content": prompt}]
-        result = await self._call_api(messages, temperature=0.95)
+        result = await self._call_api(messages, temperature=0.95, retries=2, timeout=150.0)
 
         # 尝试解析并规范化JSON，避免前端收到不稳定格式。
         try:

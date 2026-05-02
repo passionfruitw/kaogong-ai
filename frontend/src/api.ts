@@ -86,7 +86,7 @@ export const aiApi = {
 
   // 举一反三 - 生成变式题
   generateVariants: (data: QuestionData & { count: number }): Promise<AIResponse> =>
-    unwrap(api.post('/ai/variants', data)),
+    unwrap(api.post('/ai/variants', data, { timeout: 180000 })),
 
   // 苏格拉底式教学
   socraticTeach: (data: QuestionData & SocraticStep & { conversation_history?: Array<{role: string, content: string}> }): Promise<AIResponse> =>

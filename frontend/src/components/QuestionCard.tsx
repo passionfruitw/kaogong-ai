@@ -151,6 +151,22 @@ function normalizeVariantPayload(content: string): VariantQuestion {
   }
 }
 
+function getVariantErrorMessage(error: unknown) {
+  const axiosErr = error as { code?: string; response?: { status?: number; data?: { detail?: string } }; message?: string }
+  const status = axiosErr.response?.status
+  const detail = axiosErr.response?.data?.detail
+
+  if (status === 504 || status === 502 || status === 503 || axiosErr.code === 'ECONNABORTED') {
+    return 'AI响应超时，系统已自动重试但仍未完成。请稍后再点一次举一反三。'
+  }
+
+  if (status === 429) {
+    return 'AI请求过于频繁，请稍等片刻后重试。'
+  }
+
+  return detail || (error instanceof Error ? error.message : axiosErr.message) || '网络错误'
+}
+
 export default function QuestionCard({
   question,
   onAnswerSelect,
@@ -188,8 +204,7 @@ export default function QuestionCard({
       onPracticeVariant?.(variant, question)
     } catch (error: unknown) {
       console.error('举一反三错误:', error)
-      const axiosErr = error as { response?: { data?: { detail?: string } }; message?: string }
-      const errorMsg = axiosErr.response?.data?.detail || (error instanceof Error ? error.message : axiosErr.message) || '网络错误'
+      const errorMsg = getVariantErrorMessage(error)
       setVariantsError(`生成失败: ${errorMsg}`)
     } finally {
       setVariantsLoading(false)
