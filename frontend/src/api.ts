@@ -43,6 +43,7 @@ export interface QuestionData {
   correct_answer?: string
   module: string
   knowledge_point?: string
+  passage?: string
 }
 
 export interface AIResponse {

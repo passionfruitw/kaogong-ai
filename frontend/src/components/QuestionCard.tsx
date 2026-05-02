@@ -20,7 +20,136 @@ interface QuestionCardProps {
   hidePassage?: boolean
 }
 
-const optionLabels = ['A', 'B', 'C', 'D']
+const optionLabels = ['A', 'B', 'C', 'D'] as const
+
+type VariantRecord = Record<string, unknown>
+
+function asRecord(value: unknown): VariantRecord | null {
+  return value && typeof value === 'object' && !Array.isArray(value) ? value as VariantRecord : null
+}
+
+function getValue(record: VariantRecord, keys: string[]) {
+  for (const key of keys) {
+    if (record[key] !== undefined && record[key] !== null) return record[key]
+  }
+  return undefined
+}
+
+function getString(record: VariantRecord, keys: string[]) {
+  const value = getValue(record, keys)
+  if (typeof value === 'string') return value.trim()
+  if (typeof value === 'number') return String(value)
+  return ''
+}
+
+function stripOptionLabel(option: string) {
+  return option.replace(/^\s*[A-D][、.．:：\s]+/i, '').trim()
+}
+
+function normalizeOptions(value: unknown) {
+  if (Array.isArray(value)) {
+    return value
+      .map(item => stripOptionLabel(String(item ?? '')))
+      .filter(Boolean)
+  }
+
+  const record = asRecord(value)
+  if (record) {
+    return optionLabels
+      .map(label => record[label] ?? record[label.toLowerCase()] ?? record[`选项${label}`])
+      .map(item => stripOptionLabel(String(item ?? '')))
+      .filter(Boolean)
+  }
+
+  if (typeof value === 'string') {
+    const chunks = value
+      .split(/(?=\s*[A-D][、.．:：]\s*)/i)
+      .map(stripOptionLabel)
+      .filter(Boolean)
+
+    if (chunks.length >= 4) return chunks
+
+    return value
+      .split(/\r?\n|[；;]/)
+      .map(stripOptionLabel)
+      .filter(Boolean)
+  }
+
+  return []
+}
+
+function normalizeAnswer(value: unknown) {
+  const text = String(value ?? '').trim()
+  const match = text.match(/[A-D]/i)
+  return match ? match[0].toUpperCase() : ''
+}
+
+function stripCodeFence(content: string) {
+  const fenced = content.match(/```(?:json)?\s*([\s\S]*?)```/i)
+  return (fenced?.[1] || content).trim()
+}
+
+function parseJsonLike(content: string): unknown {
+  const clean = stripCodeFence(content)
+  const candidates = [clean]
+  const arrayStart = clean.indexOf('[')
+  const arrayEnd = clean.lastIndexOf(']')
+  if (arrayStart !== -1 && arrayEnd > arrayStart) {
+    candidates.push(clean.slice(arrayStart, arrayEnd + 1))
+  }
+
+  const objectStart = clean.indexOf('{')
+  const objectEnd = clean.lastIndexOf('}')
+  if (objectStart !== -1 && objectEnd > objectStart) {
+    candidates.push(clean.slice(objectStart, objectEnd + 1))
+  }
+
+  for (const candidate of candidates) {
+    try {
+      return JSON.parse(candidate)
+    } catch {
+      // Try the next likely JSON segment.
+    }
+  }
+
+  throw new Error('AI返回不是有效JSON，请重试')
+}
+
+function unwrapVariant(value: unknown): unknown {
+  if (Array.isArray(value)) return value[0]
+
+  const record = asRecord(value)
+  if (!record) return value
+
+  for (const key of ['variants', 'questions', 'items', 'data', 'result', '变式题', '题目列表']) {
+    const nested = record[key]
+    if (nested !== undefined) return unwrapVariant(nested)
+  }
+
+  return value
+}
+
+function normalizeVariantPayload(content: string): VariantQuestion {
+  const parsed = parseJsonLike(content)
+  const data = asRecord(unwrapVariant(parsed))
+  if (!data) throw new Error('AI返回格式不完整，请重试')
+
+  const question = getString(data, ['question', '题目', 'stem', '题干', 'content'])
+  const options = normalizeOptions(getValue(data, ['options', '选项', 'choices', '选项列表']))
+  const answer = normalizeAnswer(getValue(data, ['answer', '答案', 'correct_answer', 'correctAnswer', '正确答案']))
+  const explanation = getString(data, ['explanation', '解析', 'analysis', 'solution', '解题思路'])
+
+  if (!question) throw new Error('AI返回的题干为空，请重试')
+  if (options.length < 4) throw new Error('AI返回的选项不足4个，请重试')
+  if (!optionLabels.some(label => label === answer)) throw new Error('AI返回的答案不是A-D，请重试')
+
+  return {
+    question,
+    options: options.slice(0, 4),
+    answer,
+    explanation
+  }
+}
 
 export default function QuestionCard({
   question,
@@ -46,46 +175,21 @@ export default function QuestionCard({
     setVariantsLoading(true)
     setVariantsError('')
     try {
-      console.log('开始生成举一反三题目...')
       const response = await aiApi.generateVariants({
         question: question.question,
         options: question.options,
         correct_answer: question.answer,
         module: question.module,
         knowledge_point: question.knowledgePoint,
+        passage: passage?.content,
         count: 1
       })
-      console.log('API响应:', response)
-
-      let content = response.content
-      console.log('原始内容:', content)
-      if (content.includes('```json')) {
-        content = content.split('```json')[1].split('```')[0].trim()
-      } else if (content.includes('```')) {
-        content = content.split('```')[1].split('```')[0].trim()
-      }
-      console.log('处理后内容:', content)
-
-      const parsed = JSON.parse(content)
-      console.log('解析后数据:', parsed)
-      const variantData = Array.isArray(parsed) ? parsed[0] : parsed
-      const variant = {
-        question: variantData.question || variantData.题目 || '',
-        options: variantData.options || variantData.选项 || [],
-        answer: variantData.answer || variantData.答案 || '',
-        explanation: variantData.explanation || variantData.解析 || ''
-      }
-      console.log('最终变式题:', variant)
-
-      if (variant.question && variant.options.length >= 4) {
-        onPracticeVariant?.(variant, question)
-      } else {
-        setVariantsError('生成的题目格式不完整')
-      }
+      const variant = normalizeVariantPayload(response.content)
+      onPracticeVariant?.(variant, question)
     } catch (error: unknown) {
       console.error('举一反三错误:', error)
       const axiosErr = error as { response?: { data?: { detail?: string } }; message?: string }
-      const errorMsg = axiosErr.response?.data?.detail || axiosErr.message || '网络错误'
+      const errorMsg = axiosErr.response?.data?.detail || (error instanceof Error ? error.message : axiosErr.message) || '网络错误'
       setVariantsError(`生成失败: ${errorMsg}`)
     } finally {
       setVariantsLoading(false)
@@ -207,18 +311,22 @@ export default function QuestionCard({
         </div>
       )}
 
-      {showResult && !isCorrect && (
+      {showResult && (onAnalyzeClick || onPracticeVariant) && (
         <div className="action-buttons">
-          <button className="btn btn-secondary" onClick={onAnalyzeClick}>
-            AI分析错题
-          </button>
-          <button
-            className="btn btn-secondary variant-btn"
-            onClick={handleVariants}
-            disabled={variantsLoading}
-          >
-            {variantsLoading ? '生成中...' : '举一反三'}
-          </button>
+          {onAnalyzeClick && (
+            <button className="btn btn-secondary" onClick={onAnalyzeClick}>
+              AI分析
+            </button>
+          )}
+          {onPracticeVariant && (
+            <button
+              className="btn btn-secondary variant-btn"
+              onClick={handleVariants}
+              disabled={variantsLoading}
+            >
+              {variantsLoading ? '生成中...' : '举一反三'}
+            </button>
+          )}
         </div>
       )}
 

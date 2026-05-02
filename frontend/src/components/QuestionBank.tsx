@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
 import { questions, getAllModules, Question, passages } from '../data/index'
 import QuestionCard from './QuestionCard'
-import { useAppStore } from '../stores/useAppStore'
+import { useAppStore, VariantQuestion } from '../stores/useAppStore'
 
 // 回到顶部按钮组件
 function ScrollToTopButton() {
@@ -34,6 +34,11 @@ export default function QuestionBank() {
   const bookmarkedIds = useAppStore(s => s.bookmarkedIds)
   const toggleBookmark = useAppStore(s => s.toggleBookmark)
   const answerHistory = useAppStore(s => s.answerHistory)
+  const setTrainingVariants = useAppStore(s => s.setTrainingVariants)
+  const setCurrentTrainingIndex = useAppStore(s => s.setCurrentTrainingIndex)
+  const setOriginalQuestion = useAppStore(s => s.setOriginalQuestion)
+  const setCurrentView = useAppStore(s => s.setCurrentView)
+  const setPracticeQuestionId = useAppStore(s => s.setPracticeQuestionId)
 
   const [selectedModule, setSelectedModule] = useState('全部')
   const [selectedKnowledgePoint, setSelectedKnowledgePoint] = useState('全部')
@@ -136,6 +141,14 @@ export default function QuestionBank() {
       knowledgePoint: q.knowledgePoint,
       module: q.module,
     })
+  }
+
+  const handlePracticeVariant = (variant: VariantQuestion, originalQuestion: Question) => {
+    setTrainingVariants([variant])
+    setCurrentTrainingIndex(0)
+    setOriginalQuestion(originalQuestion)
+    setPracticeQuestionId(originalQuestion.id)
+    setCurrentView('practice')
   }
 
   return (
@@ -262,7 +275,7 @@ export default function QuestionBank() {
                       showResult={passageSubmitted}
                       onAnswerSelect={(ans) => setPassageAnswers(prev => ({ ...prev, [q.id]: ans }))}
                       onAnalyzeClick={() => handleAnalyze(q)}
-                      onPracticeVariant={() => {}}
+                      onPracticeVariant={handlePracticeVariant}
                       hidePassage={idx > 0}
                     />
                   ))}
@@ -299,7 +312,7 @@ export default function QuestionBank() {
                     showResult={showResult}
                     onAnswerSelect={setSelectedAnswer}
                     onAnalyzeClick={() => handleAnalyze(currentQuestion!)}
-                    onPracticeVariant={() => {}}
+                    onPracticeVariant={handlePracticeVariant}
                   />
                   {!showResult ? (
                     <button className="btn btn-primary submit-btn" onClick={handleSubmit} disabled={!selectedAnswer}>

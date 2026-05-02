@@ -40,7 +40,6 @@ export default function Practice() {
   const nextTrainingQuestion = useAppStore(s => s.nextTrainingQuestion)
   const trainingProgress = trainingVariants.length > 0 ? { current: currentTrainingIndex + 1, total: trainingVariants.length } : undefined
   const markDone = useAppStore(s => s.markDone)
-  const resetDone = useAppStore(s => s.resetDone)
   const saveAnswer = useAppStore(s => s.saveAnswer)
   const clearTraining = useAppStore(s => s.clearTraining)
   const setCurrentView = useAppStore(s => s.setCurrentView)
@@ -286,20 +285,22 @@ export default function Practice() {
   }
 
   const handleReset = () => {
-    resetDone()
-    setCurrentIndex(0)
     setSelectedAnswer(undefined)
     setShowResult(false)
+    setPassageAnswers({})
+    setPassageSubmitted(false)
+    setTimerActive(true)
+    setElapsed(0)
   }
 
-  const handleGoToSocratic = () => {
-    if (currentQuestion) {
+  const handleGoToSocratic = (question: Question | undefined = currentQuestion) => {
+    if (question) {
       goToSocratic({
-        question: currentQuestion.question,
-        options: currentQuestion.options,
-        answer: currentQuestion.answer,
-        knowledgePoint: currentQuestion.knowledgePoint,
-        module: currentQuestion.module
+        question: question.question,
+        options: question.options,
+        answer: question.answer,
+        knowledgePoint: question.knowledgePoint,
+        module: question.module
       })
     }
   }
@@ -595,7 +596,7 @@ export default function Practice() {
               selectedAnswer={passageAnswers[q.id]}
               showResult={passageSubmitted}
               onAnswerSelect={(ans) => setPassageAnswers(prev => ({ ...prev, [q.id]: ans }))}
-              onAnalyzeClick={handleGoToSocratic}
+              onAnalyzeClick={() => handleGoToSocratic(q)}
               onPracticeVariant={handlePracticeVariant}
               hidePassage={idx > 0}
             />
@@ -659,7 +660,7 @@ export default function Practice() {
             selectedAnswer={selectedAnswer}
             showResult={showResult}
             onAnswerSelect={handleAnswerSelect}
-            onAnalyzeClick={handleGoToSocratic}
+            onAnalyzeClick={() => handleGoToSocratic(currentQuestion)}
             onPracticeVariant={handlePracticeVariant}
           />
           <button

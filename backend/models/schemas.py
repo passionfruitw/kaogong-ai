@@ -44,6 +44,7 @@ class VariantQuestionsRequest(BaseModel):
     module: str = "行测"
     knowledge_point: Optional[str] = None
     count: int = 3
+    passage: Optional[str] = None
 
 
 class StudyPlanRequest(BaseModel):

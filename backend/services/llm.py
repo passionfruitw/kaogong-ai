@@ -1,6 +1,7 @@
 """LLM service - DeepSeek API integration."""
 import os
 import json
+import re
 import httpx
 from datetime import datetime
 from typing import List, Dict, Optional
@@ -21,12 +22,112 @@ API_KEY = _env("DEEPSEEK_API_KEY")
 BASE_URL = _env("DEEPSEEK_BASE_URL") or "https://api.deepseek.com"
 DEFAULT_MODEL = get_default_model()
 CHAT_COMPLETIONS_PATH = _env("DEEPSEEK_CHAT_COMPLETIONS_PATH") or "/chat/completions"
+OPTION_LABELS = ["A", "B", "C", "D"]
 
 
 def build_chat_completions_url(base_url: str, path: str) -> str:
     base = base_url.rstrip("/")
     suffix = path if path.startswith("/") else f"/{path}"
     return f"{base}{suffix}"
+
+
+def _strip_code_fence(content: str) -> str:
+    match = re.search(r"```(?:json)?\s*([\s\S]*?)```", content, re.IGNORECASE)
+    return (match.group(1) if match else content).strip()
+
+
+def _parse_json_like(content: str):
+    clean = _strip_code_fence(content)
+    candidates = [clean]
+
+    array_start = clean.find("[")
+    array_end = clean.rfind("]")
+    if array_start != -1 and array_end > array_start:
+        candidates.append(clean[array_start:array_end + 1])
+
+    object_start = clean.find("{")
+    object_end = clean.rfind("}")
+    if object_start != -1 and object_end > object_start:
+        candidates.append(clean[object_start:object_end + 1])
+
+    last_error = None
+    for candidate in candidates:
+        try:
+            return json.loads(candidate)
+        except Exception as exc:
+            last_error = exc
+
+    raise ValueError(f"invalid JSON from LLM: {last_error}")
+
+
+def _dig_first(value):
+    if isinstance(value, list):
+        return value[0] if value else {}
+    if isinstance(value, dict):
+        for key in ("variants", "questions", "items", "data", "result", "变式题", "题目列表"):
+            if key in value:
+                return _dig_first(value[key])
+    return value
+
+
+def _pick(data: dict, keys: List[str]):
+    for key in keys:
+        value = data.get(key)
+        if value is not None:
+            return value
+    return None
+
+
+def _strip_option_label(option: str) -> str:
+    return re.sub(r"^\s*[A-Da-d][、.．:：\s]+", "", option).strip()
+
+
+def _normalize_options(value) -> List[str]:
+    if isinstance(value, list):
+        return [_strip_option_label(str(item)) for item in value if str(item).strip()]
+
+    if isinstance(value, dict):
+        options = []
+        for label in OPTION_LABELS:
+            item = value.get(label) or value.get(label.lower()) or value.get(f"选项{label}")
+            if item is not None and str(item).strip():
+                options.append(_strip_option_label(str(item)))
+        return options
+
+    if isinstance(value, str):
+        parts = re.split(r"(?=\s*[A-Da-d][、.．:：]\s*)", value)
+        options = [_strip_option_label(part) for part in parts if _strip_option_label(part)]
+        if len(options) >= 4:
+            return options
+        return [_strip_option_label(part) for part in re.split(r"\n|[；;]", value) if _strip_option_label(part)]
+
+    return []
+
+
+def _normalize_answer(value) -> str:
+    match = re.search(r"[A-Da-d]", str(value or ""))
+    return match.group(0).upper() if match else ""
+
+
+def _normalize_variant(value) -> Optional[dict]:
+    data = _dig_first(value)
+    if not isinstance(data, dict):
+        return None
+
+    question = str(_pick(data, ["question", "题目", "stem", "题干", "content"]) or "").strip()
+    options = _normalize_options(_pick(data, ["options", "选项", "choices", "选项列表"]))
+    answer = _normalize_answer(_pick(data, ["answer", "答案", "correct_answer", "correctAnswer", "正确答案"]))
+    explanation = str(_pick(data, ["explanation", "解析", "analysis", "solution", "解题思路"]) or "").strip()
+
+    if not question or len(options) < 4 or answer not in OPTION_LABELS:
+        return None
+
+    return {
+        "question": question,
+        "options": options[:4],
+        "answer": answer,
+        "explanation": explanation
+    }
 
 # 日志目录
 LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "sessions")
@@ -90,34 +191,58 @@ class LLMService:
 
     async def generate_variants(self, question_data: dict, count: int = 3) -> List[dict]:
         """举一反三 - 生成变式题"""
-        prompt = f"""请基于以下题目，生成{count}道同类变式题。
+        safe_count = max(1, min(int(count or 1), 5))
+        options_text = ''.join([
+            f"\n{OPTION_LABELS[i]}. {opt}"
+            for i, opt in enumerate(question_data.get('options') or [])
+            if i < len(OPTION_LABELS)
+        ])
+        passage_text = question_data.get("passage")
+        passage_context = f"\n原题材料：{passage_text}" if passage_text else ""
 
+        prompt = f"""你是公务员考试命题专家。请基于以下真题生成{safe_count}道“迁移训练”题，而不是简单改名、改数字的仿写题。
+
+知识点：{question_data.get('knowledge_point') or '未标注'}
+模块：{question_data.get('module') or '行测'}
+{passage_context}
 原题：{question_data['question']}
-{''.join([f"\n选项{i+1}: {opt}" for i, opt in enumerate(question_data.get('options') or [])])}
+{options_text}
 正确答案：{question_data.get('correct_answer', '')}
 
-要求：
-1. 变式题考察同一知识点，但问法不同
-2. 可以设置类似的陷阱
-3. 包含题目、选项、正确答案和简要解析
+硬性要求：
+1. 只保留同一核心知识点，必须换成新的材料、场景、对象、数值关系或论证结构。
+2. 不得照搬原题句式、主体名称、叙事顺序或解题步骤；不能只是替换名称和数据。
+3. 至少改变一个关键考法，例如反向提问、条件缺失补全、多步推断、陷阱位置变化、比较口径变化、论证角色变化。
+4. 选项必须互斥且只有一个正确答案，答案只能是 A/B/C/D。
+5. 解析要说明新题的独立解题路径，并点出它与原题在考法上的差异。
 
-请以JSON数组格式返回，每道题包含：question, options, answer, explanation"""
+请严格只返回 JSON 数组，不要 Markdown，不要解释性文字。数组中每项必须且只能包含这些字段：
+[
+  {{
+    "question": "题干",
+    "options": ["选项A", "选项B", "选项C", "选项D"],
+    "answer": "A",
+    "explanation": "解析"
+  }}
+]"""
 
         messages = [{"role": "user", "content": prompt}]
-        result = await self._call_api(messages, temperature=0.8)
+        result = await self._call_api(messages, temperature=0.95)
 
-        # 尝试解析JSON，如果失败则返回原始文本
+        # 尝试解析并规范化JSON，避免前端收到不稳定格式。
         try:
-            import json
-            # 尝试提取JSON部分
-            if "```json" in result:
-                result = result.split("```json")[1].split("```")[0].strip()
-            elif "```" in result:
-                result = result.split("```")[1].split("```")[0].strip()
-            variants = json.loads(result)
-            return json.dumps(variants if isinstance(variants, list) else [variants])
-        except:
-            return json.dumps([{"question": "解析失败", "options": [], "answer": "", "explanation": result}])
+            parsed = _parse_json_like(result)
+            raw_variants = parsed if isinstance(parsed, list) else [parsed]
+            variants = []
+            for item in raw_variants:
+                variant = _normalize_variant(item)
+                if variant:
+                    variants.append(variant)
+            if variants:
+                return json.dumps(variants, ensure_ascii=False)
+            raise ValueError("missing required variant fields")
+        except Exception as exc:
+            raise ValueError(f"AI返回的变式题格式不完整，请重试。原始错误：{exc}")
 
     async def socratic_teaching(self, question_data: dict, step: str, user_response: str = None) -> dict:
         """苏格拉底式教学"""
